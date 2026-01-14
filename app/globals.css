@@ -17,8 +17,8 @@
 }
 
 @layer base {
-  .title-color {
-    @apply text-primary bg-red-400;
+  .text-h1 {
+    @apply font-semibold text-[56px] leading-[60px] ;
   }
   .text-gradient {
     @apply text-transparent bg-clip-text w-fit;
