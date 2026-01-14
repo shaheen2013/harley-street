@@ -35,10 +35,6 @@
     padding: 1px;
   }
 
-  .gradient-border-inner {
-    background: #fff;
-    height: 100%;
-  }
   .bg-image {
     background-image: url('./assets/images/bg-hero.png');
     background-size: cover;

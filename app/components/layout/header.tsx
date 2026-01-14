@@ -5,66 +5,75 @@ import logo from "@/assets/images/logo.png"
 import Image from "next/image";
 import {FaChevronDown} from "react-icons/fa";
 
+interface SubMenuItem {
+    title: string;
+    href: string;
+}
+
+interface MenuItem {
+    title: string;
+    href: string;
+    isSubMenu: boolean;
+    subMenu?: SubMenuItem[];
+}
+const menuList: MenuItem[] = [
+    {
+        title: 'Female',
+        href: '/',
+        isSubMenu: true,
+        subMenu: [
+            { title: 'Female 1', href: '/' },
+            { title: 'Female 2', href: '/' },
+            { title: 'Female 3', href: '/' },
+        ]
+    },
+    {
+        title: 'Male',
+        href: '/',
+        isSubMenu: true,
+        subMenu: [
+            { title: 'Male 1', href: '/' },
+            { title: 'Male 2', href: '/' },
+            { title: 'Male 3', href: '/' },
+        ]
+    },
+    {
+        title: 'Children',
+        href: '/',
+        isSubMenu: false
+    },
+    {
+        title: 'Muscle & joints',
+        href: '/',
+        isSubMenu: true,
+        subMenu: [
+            { title: 'Muscle & joints 1', href: '/' },
+            { title: 'Muscle & joints 2', href: '/' },
+            { title: 'Muscle & joints 3', href: '/' },
+        ]
+    },
+    {
+        title: 'Articles',
+        href: '/',
+        isSubMenu: false
+    },
+    {
+        title: 'Our clinic',
+        href: '/',
+        isSubMenu: true,
+        subMenu: [
+            { title: 'Our clinic 1', href: '/' },
+            { title: 'Our clinic 2', href: '/' },
+            { title: 'Our clinic 3', href: '/' },
+        ]
+    },
+    {
+        title: 'Get in Touch',
+        href: '/',
+        isSubMenu: false
+    }
+];
 const Header = () => {
-    const menuList = [
-        {
-            title: 'Female',
-            href: '/',
-            isSubMenu: true,
-            subMenu: [
-                {title: 'Female 1', href: '/'},
-                {title: 'Female 2', href: '/'},
-                {title: 'Female 3', href: '/'},
-            ]
-        },
-        {
-            title: 'Male',
-            href: '/',
-            isSubMenu: true,
-            subMenu: [
-                {title: 'Male 1', href: '/'},
-                {title: 'Male 2', href: '/'},
-                {title: 'Male 3', href: '/'},
-            ]
-        },
-        {
-            title: 'Children',
-            href: '/',
-            isSubMenu: false
-        },
-        {
-            title: 'Muscle & joints',
-            href: '/',
-            isSubMenu: true,
-            subMenu: [
-                {title: 'Muscle & joints 1', href: '/'},
-                {title: 'Muscle & joints 2', href: '/'},
-                {title: 'Muscle & joints 3', href: '/'},
-            ]
-        },
-        {
-            title: 'Articles',
-            href: '/',
-            isSubMenu: false
-        },
-        {
-            title: 'Our clinic',
-            href: '/',
-            isSubMenu: true,
-            subMenu: [
-                {title: 'Our clinic 1', href: '/'},
-                {title: 'Our clinic 2', href: '/'},
-                {title: 'Our clinic 3', href: '/'},
-            ]
-        },
-        {
-            title: 'Get in Touch',
-            href: '/',
-            isSubMenu: false
-        }
-    ];
-
-
     return (
         <div className='flex items-center justify-between py-2 container mx-auto'>
             <Link href={'/'}>
@@ -75,7 +84,7 @@ const Header = () => {
                 {menuList.map((item, index) => (
                     item.isSubMenu ? (
                         <div key={index} className="relative group">
-                            <button className="flex items-center gap-2 text-sm text-primary font-semibold focus:outline-none">
+                            <button className="flex items-center gap-2 text-sm text-primary font-semibold focus:outline-none cursor-pointer">
                                 <span>{item.title}</span>
                                 <FaChevronDown className="text-xs transition-transform duration-200 group-hover:rotate-180" />
                             </button>

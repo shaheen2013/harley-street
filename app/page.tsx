@@ -1,4 +1,5 @@
 import {Metadata} from "next";
+import HeroSection from "@/components/sections/heroSection";
 
 export const metadata: Metadata = {
   title: "Home",
@@ -19,8 +20,6 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div className={`bg-image`}>
-      <h1 className="text-[56px] font-semibold text-gradient">Specialist Second Opinion</h1>
-    </div>
+    <HeroSection/>
   );
 }
