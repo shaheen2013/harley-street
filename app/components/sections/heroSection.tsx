@@ -10,6 +10,8 @@ import heroReviewImage from "@/assets/images/hero-review.png"
 import heroReviewTopImage from "@/assets/images/hero-review-top-back.png"
 import heroReviewBackImage from "@/assets/images/hero-review-bottom-back.png"
 import heroBg from "@/assets/images/bg-hero.png"
+import leftVisual from "@/assets/images/left-visual.png"
+import rightVisual from "@/assets/images/right-visual.png"
 
 interface SectionItem {
     title: string;
@@ -35,10 +37,16 @@ const HeroSection = () => {
         );
     };
     return (
-        <div className="min-h-screen bg-cover bg-center bg-no-repeat"
+        <div className="bg-cover bg-center bg-no-repeat pt-20 pb-24 relative"
              style={{ backgroundImage: `url(${heroBg.src})` }}
         >
-            <div className="container mx-auto">
+            <div className="absolute left-0 top-0">
+                <Image src={leftVisual} alt="leftVisul" width={776} height={484} className="w-full"/>
+            </div>
+            <div className="absolute right-0 top-0">
+                <Image src={rightVisual} alt="leftVisul" width={776} height={484} className="w-full"/>
+            </div>
+            <div className="container mx-auto relative">
                 {/*SECTION LIST*/}
                 <div
                     className="w-fit mx-auto flex justify-center items-center gap-7.5 bg-white rounded-[50px] py-2 px-4 mb-16">
@@ -95,7 +103,7 @@ const HeroSection = () => {
                     </div>
 
                     <div className="relative flex items-center justify-center bg-primary rounded-xl z-20">
-                        <div className="absolute -top-10 left-auto z-10">
+                        <div className="absolute -top-9 left-auto z-10">
                             <Image src={heroReviewTopImage} width={437} height={265} alt="google Image"/>
                         </div>
                         <div className="absolute -bottom-19.5 left-auto z-10">

@@ -75,41 +75,43 @@ const menuList: MenuItem[] = [
 ];
 const Header = () => {
     return (
-        <div className='flex items-center justify-between py-2 container mx-auto'>
-            <Link href={'/'}>
-                <Image src={logo} width={145} height={72} alt="logo" className="object-contain"/>
-            </Link>
+        <div className="absolute top-0 w-full z-50">
+            <div className='flex items-center justify-between py-2 container mx-auto'>
+                <Link href={'/'}>
+                    <Image src={logo} width={145} height={72} alt="logo" className="object-contain"/>
+                </Link>
 
-            <nav className="flex items-center gap-7.5 ">
-                {menuList.map((item, index) => (
-                    item.isSubMenu ? (
-                        <div key={index} className="relative group">
-                            <button className="flex items-center gap-2 text-sm font-semibold focus:outline-none cursor-pointer">
-                                <span>{item.title}</span>
-                                <FaChevronDown className="text-xs transition-transform duration-200 group-hover:rotate-180" />
-                            </button>
+                <nav className="flex items-center gap-7.5 ">
+                    {menuList.map((item, index) => (
+                        item.isSubMenu ? (
+                            <div key={index} className="relative group">
+                                <button className="flex items-center gap-2 text-sm font-semibold focus:outline-none cursor-pointer">
+                                    <span>{item.title}</span>
+                                    <FaChevronDown className="text-xs transition-transform duration-200 group-hover:rotate-180" />
+                                </button>
 
-                            <ul className="absolute left-0 w-48 bg-white shadow-lg rounded border border-primary z-20 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transform scale-95 group-hover:scale-100 transition-all duration-150 overflow-hidden">
-                                {item.subMenu?.map((sub, sidx) => (
-                                    <li key={sidx} className="px-4 py-2 hover:bg-gray-50">
-                                        <Link href={sub.href} className="block text-sm font-semibold ">
-                                            {sub.title}
-                                        </Link>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    ) : (
-                        <Link key={index} href={item.href} className="text-sm font-semibold ">
-                            {item.title}
-                        </Link>
-                    )
-                ))}
-            </nav>
+                                <ul className="absolute left-0 w-48 bg-white shadow-lg rounded border border-primary z-20 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transform scale-95 group-hover:scale-100 transition-all duration-150 overflow-hidden">
+                                    {item.subMenu?.map((sub, sidx) => (
+                                        <li key={sidx} className="px-4 py-2 hover:bg-gray-50">
+                                            <Link href={sub.href} className="block text-sm font-semibold ">
+                                                {sub.title}
+                                            </Link>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        ) : (
+                            <Link key={index} href={item.href} className="text-sm font-semibold ">
+                                {item.title}
+                            </Link>
+                        )
+                    ))}
+                </nav>
 
-            <div className="flex gap-4">
-                <Button title={'Book online'}/>
-                <Button title={'Clinicians'} type={'outline'}/>
+                <div className="flex gap-4">
+                    <Button title={'Book online'}/>
+                    <Button title={'Clinicians'} type={'outline'}/>
+                </div>
             </div>
         </div>
     );
