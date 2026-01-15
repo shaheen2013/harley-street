@@ -24,7 +24,7 @@ const demoData = [
     }
 ]
 
-const HowItWork = () => {
+const HowItWorkSection = () => {
     return (
         <div className="container mx-auto">
             <SectionTitle title={'How It Works'} subtitle={'Step by Step'}/>
@@ -40,7 +40,7 @@ const HowItWork = () => {
                     <div className="absolute w-full h-1.5 bg-[#EDF7FA] -bottom-1 left-0"></div>
                 </div>
 
-                <div className="flex gap-9 rounded-xl bg-white p-8.5 shadow-[0px_10px_80px_0px_#A8AEB733] mb-5">
+                <div className="flex gap-9 rounded-xl bg-white p-8.5 shadow-primary mb-5">
                     <div className="shrink-0 w-15 h-15 rounded-full text-white flex-center bg-green-700 p-3 text-3xl">
                         <AiOutlineFileText />
                     </div>
@@ -50,7 +50,7 @@ const HowItWork = () => {
                     </div>
                 </div>
 
-                <div className="flex gap-9 rounded-xl bg-white p-8.5 shadow-[0px_10px_80px_0px_#A8AEB733] mb-5">
+                <div className="flex gap-9 rounded-xl bg-white p-8.5 shadow-primary mb-5">
                     <div className="shrink-0 w-15 h-15 rounded-full text-white flex-center bg-green-700 p-3 text-3xl">
                         <LuFileSearch />
                     </div>
@@ -83,4 +83,4 @@ const HowItWork = () => {
     );
 };
 
-export default HowItWork;
+export default HowItWorkSection;

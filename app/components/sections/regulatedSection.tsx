@@ -7,7 +7,7 @@ import reg4Image from "@/assets/images/reg-4.png"
 
 const RegulatedSection = () => {
     return (
-        <div className="relative bg-white rounded-xl container mx-auto px-6 py-3 shadow-[0px_10px_80px_0px_#A8AEB733] -mt-24 mb-20">
+        <div className="relative bg-white rounded-xl container mx-auto px-6 py-3 shadow-primary -mt-24 mb-20">
             <div className="flex items-center gap-x-52">
                 <h2 className="max-w-44 text-[32px] leading-[100%] font-medium">Registered & regulated</h2>
                 <div className="flex items-center justify-between  grow gap-3">
