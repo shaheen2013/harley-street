@@ -3,7 +3,6 @@ import SectionTitle from "@/components/ui/sectionTitle";
 import Image from "next/image";
 import needManImage from "@/assets/images/need-man.png"
 import needManBgImage from "@/assets/images/need-man-bg.png"
-import {FaCheck} from "react-icons/fa";
 import docIcon from "@/assets/icons/doc.svg"
 import checkCircleIcon from "@/assets/icons/check-circle.svg"
 import avatarsIcon from "@/assets/icons/avatars.svg"

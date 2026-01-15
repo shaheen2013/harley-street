@@ -64,8 +64,8 @@ const OurTeamSection: React.FC = () => {
                 </div>
 
                 <div className="grid grid-cols-4 gap-5 mt-12 relative overflow-hidden">
-                    <div className="absolute z-10 top-0 -left-[6%] w-[310px] h-full bg-[linear-gradient(90deg,#EDF7FA_-17.04%,rgba(237,247,250,0)_100%)]"></div>
-                    <div className="absolute z-10 top-0 -right-[6%] w-[310px] h-full bg-[linear-gradient(90deg,#EDF7FA_-17.04%,rgba(237,247,250,0)_100%)] rotate-[180deg]"></div>
+                    <div className="absolute z-10 top-0 -left-[6%] w-77.5 h-full bg-[linear-gradient(90deg,#EDF7FA_-17.04%,rgba(237,247,250,0)_100%)]"></div>
+                    <div className="absolute z-10 top-0 -right-[6%] w-77.5 h-full bg-[linear-gradient(90deg,#EDF7FA_-17.04%,rgba(237,247,250,0)_100%)] rotate-180"></div>
                     {teamMembers.map(member => (
                         <div key={member.id} className="bg-white shadow-primary rounded-xl overflow-hidden relative pt-1">
                             <div className="bg-gradient absolute top-0 left-0 w-full h-10"></div>
@@ -78,7 +78,7 @@ const OurTeamSection: React.FC = () => {
                             />
                             <div className="px-5 pt-5 pb-10">
                                 <h5 className="text-xl font-semibold leading-7">{member.name}</h5>
-                                <h6 className="leading-5.5 text-[#859BA3] font-normal mt-2 mb-4">{member.qualification}</h6>
+                                <h6 className="leading-5.5 text-gray-400 font-normal mt-2 mb-4">{member.qualification}</h6>
                                 <p className="leading-5.5 font-medium">{member.role}</p>
                             </div>
                         </div>

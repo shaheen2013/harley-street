@@ -13,7 +13,7 @@ const PricingSection = () => {
                 <div className="flex flex-col bg-white shadow-primary rounded-xl px-6 pt-14 pb-10.5">
                     <div className="flex flex-col items-center">
                         <h3 className="text-3xl leading-7 font-semibold">Written Report</h3>
-                        <h5 className="mt-4 text-lg leading-6 font-medium text-[#859BA3]">Comprehensive written analysis</h5>
+                        <h5 className="mt-4 text-lg leading-6 font-medium text-gray-400">Comprehensive written analysis</h5>
                         <h2 className="text-gradient mt-9 text-6xl font-semibold">£199</h2>
                         <p className="leading-6 font-medium text-gray-400">per scan review</p>
                     </div>
@@ -27,13 +27,13 @@ const PricingSection = () => {
                 </div>
 
                 <div className="rounded-xl gradient-border relative">
-                    <div className="absolute -top-[15px] left-0 w-full flex-center">
-                        <span className="bg-gradient text-white text-sm font-semibold leading-4.5 rounded-[30px] w-[120px] h-7.5 flex-center">Most Popular</span>
+                    <div className="absolute -top-3.75 left-0 w-full flex-center">
+                        <span className="bg-gradient text-white text-sm font-semibold leading-4.5 rounded-[30px] w-30 h-7.5 flex-center">Most Popular</span>
                     </div>
                     <div className="flex flex-col bg-white shadow-primary rounded-xl px-6 pt-14 pb-10.5">
                         <div className="flex flex-col items-center">
                             <h3 className="text-3xl leading-7 font-semibold">Report + Consultation</h3>
-                            <h5 className="mt-4 text-lg leading-6 font-medium text-[#859BA3]">Report plus video discussion</h5>
+                            <h5 className="mt-4 text-lg leading-6 font-medium text-gray-400">Report plus video discussion</h5>
                             <h2 className="text-gradient mt-9 text-6xl font-semibold">£299</h2>
                             <p className="leading-6 font-medium text-gray-400">per scan review</p>
                         </div>
@@ -51,7 +51,7 @@ const PricingSection = () => {
                 <div className="flex flex-col bg-white shadow-primary rounded-xl px-6 pt-14 pb-10.5">
                     <div className="flex flex-col items-center">
                         <h3 className="text-3xl leading-7 font-semibold">Urgent Review</h3>
-                        <h5 className="mt-4 text-lg leading-6 font-medium text-[#859BA3]">Priority 24-hour service</h5>
+                        <h5 className="mt-4 text-lg leading-6 font-medium text-gray-400">Priority 24-hour service</h5>
                         <h2 className="text-gradient mt-9 text-6xl font-semibold">£349</h2>
                         <p className="leading-6 font-medium text-gray-400">per scan review</p>
                     </div>

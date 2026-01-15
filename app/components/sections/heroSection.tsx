@@ -116,7 +116,7 @@ const HeroSection = () => {
                         </div>
                         <div className="absolute top-0 left-0 z-20 w-full h-24 rounded-xl bg-[linear-gradient(90deg,#135269_-17.04%,rgba(19,82,105,0)_100%)]"></div>
                         <div className="absolute bottom-0 left-0 z-20 w-full h-24 rounded-xl bg-[linear-gradient(90deg,#135269_-17.04%,rgba(19,82,105,0)_100%)]"></div>
-                        <div className="space-y-4 max-h-[496px] overflow-hidden flex items-center flex-col justify-center bg-primary w-full relative z-10 rounded-xl">
+                        <div className="space-y-4 max-h-124 overflow-hidden flex items-center flex-col justify-center bg-primary w-full relative z-10 rounded-xl">
                             <Image src={heroReviewImage} width={414} height={274} alt="star Group Image"/>
                             <Image src={heroReviewImage} width={414} height={274} alt="star Group Image"/>
                             <Image src={heroReviewImage} width={414} height={274} alt="star Group Image"/>
