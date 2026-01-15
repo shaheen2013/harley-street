@@ -1,46 +1,59 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #135269;
-  --gradient-title: linear-gradient(260.66deg, #31E4C4 0%, #2084D0 100%);
-  --gradient-footer: linear-gradient(180deg, #135269 0%, #083444 100%);
+    --color-primary: #135269;
+    --gradient-title: linear-gradient(260.66deg, #31E4C4 0%, #2084D0 100%);
+    --gradient-footer: linear-gradient(180deg, #135269 0%, #083444 100%);
 }
 
 
 /* Optional – dark mode overrides (class-based or media-query) */
 @layer theme {
-  .dark {
-    @theme {
+    .dark {
+        @theme {
 
+        }
     }
-  }
 }
 
 @layer base {
-  .text-h1 {
-    @apply font-semibold text-[56px] leading-[60px] ;
-  }
-  .text-gradient {
-    @apply text-transparent bg-clip-text w-fit;
-    background-image: var(--gradient-title);
-  }
-  .bg-gradient {
-    background-image: var(--gradient-title);
-  }
-  .gradient-footer {
-    background: var(--gradient-footer);
-  }
-  .gradient-border {
-    background-image: var(--gradient-title);
-    padding: 1px;
-  }
+    .text-h1 {
+        @apply font-semibold text-[56px] leading-[60px] ;
+    }
 
-  .bg-image {
-    background-image: url('./assets/images/bg-hero.png');
-    background-size: cover;
-    background-position: center;
-  }
+    .text-gradient {
+        @apply text-transparent bg-clip-text w-fit;
+        background-image: var(--gradient-title);
+    }
+
+    .bg-gradient {
+        background-image: var(--gradient-title);
+    }
+
+    .gradient-footer {
+        background: var(--gradient-footer);
+    }
+
+    .gradient-border {
+        background-image: var(--gradient-title);
+        padding: 1px;
+    }
+
+    .flex-center {
+        @apply flex justify-center items-center;
+    }
+
+    input,
+    textarea,
+    select {
+        @apply appearance-none outline-none shadow-none ring-0;
+
+        &:focus, &:focus-visible {
+            @apply outline-none ring-0 shadow-none border-gray-400;
+        }
+    }
 }
+
 body {
 
 }

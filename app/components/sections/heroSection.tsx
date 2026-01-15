@@ -49,7 +49,7 @@ const HeroSection = () => {
             <div className="container mx-auto relative">
                 {/*SECTION LIST*/}
                 <div
-                    className="w-fit mx-auto flex justify-center items-center gap-7.5 bg-white rounded-[50px] py-2 px-4 mb-16">
+                    className="w-fit mx-auto flex-center gap-7.5 bg-white rounded-[50px] py-2 px-4 mb-16">
                     {sectionList.map((item, index) => (
                         <Link
                             key={index}
