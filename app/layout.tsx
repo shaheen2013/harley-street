@@ -17,8 +17,8 @@ const generalSans = localFont({
             style: 'italic',
         },
     ],
-    display: 'swap',
-    variable: '--font-general-sans',
+    // display: 'swap',
+    // variable: '--font-general-sans',
 });
 
 export const metadata: Metadata = {
@@ -33,7 +33,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-        <body className={`${generalSans.variable} text-primary antialiased w-full min-h-screen flex flex-col`}>
+        <body className={`${generalSans.className} text-primary antialiased w-full min-h-screen flex flex-col`}>
             <Header/>
             <div className="grow">
                 {children}
