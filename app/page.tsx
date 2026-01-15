@@ -6,6 +6,7 @@ import WhenYouNeedSection from "@/components/sections/whenYouNeedSection";
 import YouWillReceivedSection from "@/components/sections/youWillReceivedSection";
 import HowItWorkSection from "@/components/sections/howItWorkSection";
 import OurTeamSection from "@/components/sections/ourTeamSection";
+import PricingSection from "@/components/sections/PricingSection";
 
 export const metadata: Metadata = {
     title: "Home",
@@ -33,6 +34,7 @@ export default function Home() {
             <YouWillReceivedSection/>
             <HowItWorkSection/>
             <OurTeamSection/>
+            <PricingSection/>
             <SpecialistSection/>
         </>
     );
