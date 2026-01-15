@@ -4,6 +4,7 @@ import SpecialistSection from "@/components/sections/specialistSection";
 import RegulatedSection from "@/components/sections/regulatedSection";
 import WhenYouNeedSection from "@/components/sections/whenYouNeedSection";
 import YouWillReceivedSection from "@/components/sections/youWillReceivedSection";
+import HowItWork from "@/components/sections/howItWork";
 
 export const metadata: Metadata = {
     title: "Home",
@@ -29,6 +30,7 @@ export default function Home() {
             <RegulatedSection/>
             <WhenYouNeedSection/>
             <YouWillReceivedSection/>
+            <HowItWork/>
             <SpecialistSection/>
         </>
     );

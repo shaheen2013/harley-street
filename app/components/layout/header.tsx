@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from "next/link";
 import Button from "@/components/ui/button";
-import logo from "@/assets/images/logo.png"
+import logo from "@/assets/images/logo.svg"
 import Image from "next/image";
 import {FaChevronDown} from "react-icons/fa";
 
