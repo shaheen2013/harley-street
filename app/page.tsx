@@ -1,5 +1,6 @@
 import {Metadata} from "next";
 import HeroSection from "@/components/sections/heroSection";
+import SpecialistSection from "@/components/sections/specialistSection";
 
 export const metadata: Metadata = {
   title: "Home",
@@ -20,6 +21,10 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <HeroSection/>
+    <>
+        <HeroSection/>
+        <div className="bg-white py-24"></div>
+        <SpecialistSection/>
+    </>
   );
 }

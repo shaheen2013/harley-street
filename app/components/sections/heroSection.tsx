@@ -37,7 +37,7 @@ const HeroSection = () => {
         );
     };
     return (
-        <div className="bg-cover bg-center bg-no-repeat pt-20 pb-24 relative"
+        <div className="bg-cover bg-bottom bg-no-repeat pt-20 pb-50 relative"
              style={{ backgroundImage: `url(${heroBg.src})` }}
         >
             <div className="absolute left-0 top-0">
