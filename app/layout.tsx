@@ -17,8 +17,6 @@ const generalSans = localFont({
             style: 'italic',
         },
     ],
-    // display: 'swap',
-    // variable: '--font-general-sans',
 });
 
 export const metadata: Metadata = {
