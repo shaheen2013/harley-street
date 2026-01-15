@@ -9,6 +9,7 @@ import checkCircleIcon from "@/assets/icons/check-circle.svg"
 import avatarsIcon from "@/assets/icons/avatars.svg"
 import globeIcon from "@/assets/icons/globe.svg"
 import circleIcon from "@/assets/icons/circle.svg"
+import TextList from "@/components/ui/textList";
 
 const patientConcerns = [
     { text: "I don’t really understand my report." },
@@ -36,12 +37,7 @@ const WhenYouNeedSection = () => {
                             <Image src={needManImage} alt="need man" width={454} height={188} className="object-cover mt-4"/>
                             <div className="flex flex-col gap-5 mt-8">
                                 {patientConcerns.map((item, idx) => (
-                                    <div className="flex items-center gap-4" key={idx}>
-                                        <div className="w-6 h-6 rounded-full text-white bg-gradient flex items-center justify-center p-1.5">
-                                            <FaCheck/>
-                                        </div>
-                                        <div className="text-lg font-medium">{item.text}</div>
-                                    </div>
+                                    <TextList title={item.text} key={idx}/>
                                 ))}
                             </div>
                         </div>
