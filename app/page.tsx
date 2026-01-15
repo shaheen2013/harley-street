@@ -3,6 +3,7 @@ import HeroSection from "@/components/sections/heroSection";
 import SpecialistSection from "@/components/sections/specialistSection";
 import RegulatedSection from "@/components/sections/regulatedSection";
 import WhenYouNeedSection from "@/components/sections/whenYouNeedSection";
+import YouWillReceivedSection from "@/components/sections/youWillReceivedSection";
 
 export const metadata: Metadata = {
     title: "Home",
@@ -27,6 +28,7 @@ export default function Home() {
             <HeroSection/>
             <RegulatedSection/>
             <WhenYouNeedSection/>
+            <YouWillReceivedSection/>
             <SpecialistSection/>
         </>
     );
