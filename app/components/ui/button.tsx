@@ -3,7 +3,7 @@ interface ButtonProps {
     title: string;
     type?: 'outline';
 }
-const Button = ({title,type}:ButtonProps) => {
+const Button:React.FC<ButtonProps> = ({title,type}) => {
     return (
         <>
             {

@@ -47,7 +47,6 @@ const HeroSection = () => {
                 <Image src={rightVisual} alt="leftVisul" width={776} height={484} className="w-full"/>
             </div>
             <div className="container mx-auto relative">
-                {/*SECTION LIST*/}
                 <div
                     className="w-fit mx-auto flex-center gap-7.5 bg-white rounded-[50px] py-2 px-4 mb-16">
                     {sectionList.map((item, index) => (
@@ -63,7 +62,7 @@ const HeroSection = () => {
                 </div>
 
                 <div className="grid grid-cols-2">
-                    <div className="max-w-[522px]">
+                    <div className="max-w-130.5">
                         <h1 className="text-h1">
                             <span className="text-gradient">Specialist Second </span>
                             <span className="text-gradient">Opinion </span>
