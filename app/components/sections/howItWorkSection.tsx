@@ -39,55 +39,55 @@ const HowItWorkSection = () => {
 
             <div className="container">
                 <SectionTitle title={'How It Works'} subtitle={'Step by Step'}/>
-                <div className="grid grid-cols-3 gap-4 mt-14">
-                    <div className="min-w-76.25 flex gap-9 rounded-xl bg-[#EDF7FA] p-8.5 border border-[#31E4C4] border-b-0 rounded-bl-none rounded-br-none relative z-10">
+                <div className="flex gap-4 mt-6 xl:mt-14">
+                    <div className="min-w-76.25 w-1/3 flex flex-col xl:flex-row gap-3 xl:gap-9 rounded-xl bg-[#EDF7FA] p-4 xl:p-8.5 border border-[#31E4C4] border-b-0 rounded-bl-none rounded-br-none relative z-10">
                         <div className="shrink-0 w-15 h-15 rounded-full text-white flex-center bg-green-700 p-3 text-3xl">
                             <MdOutlineFileUpload />
                         </div>
                         <div>
                             <div className="text-xl font-semibold line-clamp-1">Upload Your Scans</div>
-                            <p className="mt-5 font-medium line-clamp-3 leading-4.5">Securely upload your medical imaging files or let us retrieve them from the NHS IEP</p>
+                            <p className="hidden xl:block mt-5 font-medium line-clamp-3 leading-4.5">Securely upload your medical imaging files or let us retrieve them from the NHS IEP</p>
                         </div>
                         <div className="absolute w-[104%] h-10 bg-[#EDF7FA] -bottom-1 left-0"></div>
-                        <div className="absolute w-10 h-10 bg-[white] border-l border-b border-[#31E4C4] -bottom-px -right-10 rounded-bl-xl"></div>
+                        <div className="absolute w-4 sm:w-10 h-10 bg-[white] border-l border-b border-[#31E4C4] -bottom-px -right-4 sm:-right-10 rounded-bl-xl"></div>
                     </div>
 
-                    <div className="min-w-76.25 flex gap-9 rounded-xl bg-white p-8.5 shadow-primary mb-5 z-10">
+                    <div className="min-w-76.25 w-1/3 flex gap-9 rounded-xl bg-white p-8.5 shadow-primary mb-5 z-10">
                         <div className="shrink-0 w-15 h-15 rounded-full text-white flex-center bg-green-700 p-3 text-3xl">
                             <AiOutlineFileText />
                         </div>
                         <div>
                             <div className="text-xl font-semibold line-clamp-1">Share Your Concerns</div>
-                            <p className="mt-5 font-medium line-clamp-3 leading-4.5">Tell us about your symptoms and questions so we can provide targeted insights</p>
+                            <p className="hidden xl:block mt-5 font-medium line-clamp-3 leading-4.5">Tell us about your symptoms and questions so we can provide targeted insights</p>
                         </div>
                     </div>
 
-                    <div className="min-w-76.25 flex gap-9 rounded-xl bg-white p-8.5 shadow-primary mb-5 z-10">
+                    <div className="min-w-76.25 w-1/3 flex gap-9 rounded-xl bg-white p-8.5 shadow-primary mb-5 z-10">
                         <div className="shrink-0 w-15 h-15 rounded-full text-white flex-center bg-green-700 p-3 text-3xl">
                             <LuFileSearch />
                         </div>
                         <div>
                             <div className="text-xl font-semibold line-clamp-1">Expert Review</div>
-                            <p className="mt-5 font-medium line-clamp-3 leading-4.5">Consultant radiologist performs comprehensive analysis within 24-48 hours</p>
+                            <p className="hidden xl:block mt-5 font-medium line-clamp-3 leading-4.5">Consultant radiologist performs comprehensive analysis within 24-48 hours</p>
                         </div>
                     </div>
                 </div>
-                <div className="flex items-center justify-between gap-10 p-12 border bg-[#EDF7FA] border-[#31E4C4] rounded-xl rounded-tl-none">
+                <div className="flex flex-col xl:flex-row items-center justify-between gap-5 xl:gap-10 p-4 xl:p-12 border bg-[#EDF7FA] border-[#31E4C4] rounded-xl rounded-tl-none">
                     <div className="max-w-137 w-full">
-                        <h3 className="text-[42px] font-medium leading-[120%]">Secure upload or NHS retrieval</h3>
-                        <p className="mt-5.5 font-medium leading-5.5">
+                        <h3 className="text-[24px] xl:text-[42px] font-medium leading-[120%]">Secure upload or NHS retrieval</h3>
+                        <p className="mt-3 xl:mt-5.5 font-medium leading-5.5 text-sm xl:text-base">
                             Choose how you&#39;d like to share your scans with us. Upload directly through our GDPR-compliant portal, or authorize us to retrieve your images from the NHS Image Exchange Portal (IEP). Either way, your data is encrypted and handled with the highest security standards.
                         </p>
                         <Link href="" className="mt-3.5 mb-7 flex text-gradient font-semibold leading-5.5">Secure Link</Link>
-                        <div className="flex flex-col gap-5 mb-9">
+                        <div className="hidden xl:flex flex-col gap-5 mb-9">
                             { demoData.map((item, idx) => (
                                 <TextList key={idx} title={item.title} subTitle={item.subTitle} />
                             ))}
                         </div>
 
-                        <Button title={'Start Upload Process'}/>
+                        <Button title={'Start Upload Process'} className={'w-full xl:w-fit'}/>
                     </div>
-                    <div className="max-w-117 w-full rounded-xl gradient-border">
+                    <div className="order-first xl:order-last max-w-117 w-full rounded-xl gradient-border">
                         <div className="bg-white p-6 h-full rounded-xl">
                             <div className="flex justify-between items-center mb-6">
                                 <div className="flex gap-3 items-center">
@@ -101,8 +101,8 @@ const HowItWorkSection = () => {
                                     <div className="flex gap-3 items-center">
                                         <div className="w-8 h-8 rounded-md flex-center bg-green-200 text-2xl text-green-700"><FaRegFileLines /></div>
                                         <div>
-                                            <div className="font-semibold">MRI_Brain_Scan.dcm</div>
-                                            <div className="text-gray-400 text-sm">Uploaded . 24.5 MB</div>
+                                            <div className="font-semibold text-xs xl:text-base">MRI_Brain_Scan.dcm</div>
+                                            <div className="text-gray-400 text-xs xl:text-sm">Uploaded . 24.5 MB</div>
                                         </div>
                                     </div>
                                     <div className="text-2xl text-green-700"><FiCheckCircle /></div>
@@ -112,8 +112,8 @@ const HowItWorkSection = () => {
                                     <div className="flex gap-3 items-center">
                                         <div className="w-8 h-8 rounded-md flex-center bg-blue-200 text-2xl text-blue-700"><FaRegFileLines /></div>
                                         <div>
-                                            <div className="font-semibold">MRI_Brain_Scan.dcm</div>
-                                            <div className="text-gray-400 text-sm">Uploaded . 24.5 MB</div>
+                                            <div className="font-semibold text-xs xl:text-base">Original_Report.pdf</div>
+                                            <div className="text-gray-400 text-xs xl:text-sm">Uploaded . 1.2 MB</div>
                                         </div>
                                     </div>
                                     <div className="text-2xl text-green-700"><FiCheckCircle /></div>
@@ -123,8 +123,8 @@ const HowItWorkSection = () => {
                                     <div className="flex gap-3 items-center">
                                         <div className="w-8 h-8 rounded-md flex-center bg-blue-200 text-2xl text-blue-700"><MdOutlineFileUpload/></div>
                                         <div>
-                                            <div className="font-semibold">Drop files or click to upload</div>
-                                            <div className="text-blue-700 text-sm">DICOM, PDF, JPEG, accept</div>
+                                            <div className="font-semibold text-xs xl:text-base">Drop files or click to upload</div>
+                                            <div className="text-blue-700 text-xs xl:text-sm">DICOM, PDF, JPEG, accept</div>
                                         </div>
                                     </div>
                                     <div className="text-2xl text-green-700"><FiCheckCircle /></div>
@@ -135,7 +135,7 @@ const HowItWorkSection = () => {
                                         <div className="font-semibold">Status</div>
                                         <div className="bg-green-200 text-sm rounded-full px-2 py-1 font-medium text-green-700">Ready for Review</div>
                                     </div>
-                                    <div className="flex-center bg-green-700 p-3 text-white rounded-xl mt-4">Submit for Expert Review</div>
+                                    <div className="flex-center bg-green-700 p-3 text-sm text-white rounded-xl mt-4">Submit for Expert Review</div>
                                 </div>
                             </div>
 
