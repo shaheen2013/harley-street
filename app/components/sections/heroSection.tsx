@@ -48,12 +48,12 @@ const HeroSection = () => {
             <div className="absolute left-0 top-0">
                 <Image src={leftVisual} alt="leftVisul" width={776} height={484} className="w-full"/>
             </div>
-            <div className="absolute right-0 top-0">
+            <div className="hidden xl:block absolute right-0 top-0">
                 <Image src={rightVisual} alt="leftVisul" width={776} height={484} className="w-full"/>
             </div>
             <div className="container relative">
                 <div
-                    className="w-fit mx-auto flex-center gap-7.5 bg-white rounded-[50px] py-2 px-4 mb-16">
+                    className="w-fit mx-auto flex-center gap-7.5 bg-white rounded-[50px] py-2 px-4 mb-4 xl:mb-16">
                     {sectionList.map((item, index) => (
                         <div
                             key={index}
