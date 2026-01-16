@@ -1,3 +1,4 @@
+'use client'
 import React from 'react';
 import SectionTitle from "@/components/ui/sectionTitle";
 import Button from "@/components/ui/button";
@@ -9,8 +10,11 @@ import scan4Image from "@/assets/images/scan-4.png";
 import scan5Image from "@/assets/images/scan-5.png";
 import scan6Image from "@/assets/images/scan-6.png";
 import bgVisual from "@/assets/images/center-visual.png";
+import {useScrollAnimation} from "@/hooks/useScrollAnimation";
 
 const SpecialistSection = () => {
+    const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
+
     return (
         <div className="bg-blue-100 relative pt-14 xl:pt-58 pb-34.5 overflow-hidden">
             <div className="clip-top-large-circle"></div>
@@ -41,7 +45,9 @@ const SpecialistSection = () => {
             </div>
 
             <div className="container relative">
-                <div className="flex flex-col text-center mt-14">
+                <div ref={ref} className={`flex flex-col text-center mt-14 transition-all duration-1000 ease-out ${
+                    isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'
+                }`}>
                     <SectionTitle title={'Second Opinion on Your Scan?'} subtitle={'Ready for a Specialist'} subtitleSize={'text-[28px] xl:text-[48px]'}/>
                     <p className="text-sm xl:text-lg leading-[150%] mt-2 xl:mt-5 mb-7 xl:mb-11 max-w-164 mx-auto">Get an independent review from a
                         consultant radiologist and a clear explanation of your results.</p>

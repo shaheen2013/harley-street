@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import SectionTitle from "@/components/ui/sectionTitle";
 import { HiOutlineMinus, HiOutlinePlus } from "react-icons/hi";
+import {useScrollAnimation} from "@/hooks/useScrollAnimation";
 
 type FaqItem = {
     id: string;
@@ -90,6 +91,8 @@ const AccordionItem: React.FC<{
 
 const FaqSection: React.FC = () => {
     const [openId, setOpenId] = useState<string | null>("q1");
+    const { ref: leftRef, isVisible: leftVisible } = useScrollAnimation({ threshold: 0.1 });
+    const { ref: rightRef, isVisible: rightVisible } = useScrollAnimation({ threshold: 0.1 });
 
     const toggle = (id: string) => {
         setOpenId((prev) => (prev === id ? null : id));
@@ -102,19 +105,35 @@ const FaqSection: React.FC = () => {
     return (
         <div id="fAQs" className="container mt-10 mb-10">
             <div className="flex-center text-center mb-14">
-                <SectionTitle title={"Frequently Asked Questions"} subtitle={"FAQ’s"} />
+                <SectionTitle title={"Frequently Asked Questions"} subtitle={"FAQ's"} />
             </div>
 
             <div className="grid grid-cols-1 xl:grid-cols-2 gap-5">
-                <div className="flex flex-col gap-3">
-                    {left.map((it) => (
-                        <AccordionItem key={it.id} item={it} isOpen={openId === it.id} onToggle={toggle} />
+                <div ref={leftRef} className="flex flex-col gap-3">
+                    {left.map((it, idx) => (
+                        <div
+                            key={it.id}
+                            className={`transition-all duration-700 ease-out ${
+                                leftVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
+                            }`}
+                            style={{ transitionDelay: `${idx * 100}ms` }}
+                        >
+                            <AccordionItem item={it} isOpen={openId === it.id} onToggle={toggle} />
+                        </div>
                     ))}
                 </div>
 
-                <div className="flex flex-col gap-3">
-                    {right.map((it) => (
-                        <AccordionItem key={it.id} item={it} isOpen={openId === it.id} onToggle={toggle} />
+                <div ref={rightRef} className="flex flex-col gap-3">
+                    {right.map((it, idx) => (
+                        <div
+                            key={it.id}
+                            className={`transition-all duration-700 ease-out ${
+                                rightVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
+                            }`}
+                            style={{ transitionDelay: `${idx * 100}ms` }}
+                        >
+                            <AccordionItem item={it} isOpen={openId === it.id} onToggle={toggle} />
+                        </div>
                     ))}
                 </div>
             </div>
