@@ -1,5 +1,4 @@
 import React from 'react';
-import bgImage from "@/assets/images/bg-carve.png";
 import SectionTitle from "@/components/ui/sectionTitle";
 import Image from "next/image";
 import arrowRightIcon from "@/assets/icons/right-arrow.svg";
@@ -8,10 +7,9 @@ import boxSearchIcon from "@/assets/icons/box-search.svg";
 import textIcon from "@/assets/icons/text.svg";
 import boxCheckIcon from "@/assets/icons/box-check.svg";
 import healthIcon from "@/assets/icons/health.svg";
-import bgTopImage from "@/assets/images/center-visual.png";
-import bgBottomImage from "@/assets/images/bottom-visual.png";
 import Link from "next/link";
 import {FiChevronRight} from "react-icons/fi";
+import bgVisual from "@/assets/images/center-visual.png";
 
 const cardData = [
     {
@@ -45,13 +43,9 @@ const YouWillReceivedSection = () => {
     return (
         <div id="what-you-receive" className="bg-blue-100  relative pt-50 pb-10 overflow-hidden">
             <div className="clip-top-large-circle top-0"></div>
-            {/*<div className="absolute inset-0 flex-center">
-                <Image src={bgTopImage} alt="bg Top Image" width={1144} height={747}/>
-            </div>*/}
-
-            {/*<div className="absolute bottom-1 left-[10%] rotate-3 flex-center">
-                <Image src={bgBottomImage} alt="bg bottom Image" width={1144} height={747}/>
-            </div>*/}
+            <div className="absolute left-1/2  top-16 -translate-x-1/2 ">
+                <Image src={bgVisual} alt='bgVisual' width={681} height={425}/>
+            </div>
 
             <div className="container mx-auto relative">
                 <div className="flex justify-between items-center">

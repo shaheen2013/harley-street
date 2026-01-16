@@ -6,6 +6,7 @@ import Image, {StaticImageData} from "next/image";
 import team1Image from "@/assets/images/team-1.png";
 import team2Image from "@/assets/images/team-2.png";
 import team3Image from "@/assets/images/team-3.png";
+import bgVisual from "@/assets/images/center-visual.png";
 
 interface TeamMember {
     id: number;
@@ -56,6 +57,10 @@ const OurTeamSection: React.FC = () => {
         <div id="specialist"
             className="bg-blue-100 pt-50 relative overflow-hidden">
             <div className="clip-top-large-circle top-0"></div>
+            <div className="absolute left-1/2  top-16 -translate-x-1/2 ">
+                <Image src={bgVisual} alt='bgVisual' width={681} height={425}/>
+            </div>
+
             <div className="container mx-auto">
                 <div className="flex justify-between items-end">
                     <SectionTitle title={'Meet Your Specialists'} subtitle={'Our team'} />
