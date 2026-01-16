@@ -48,7 +48,7 @@
         @apply flex justify-center items-center;
     }
     .container {
-        @apply container mx-auto px-4 xl:px-0 ;
+        @apply container mx-auto px-4;
     }
     .clip-bottom-large-circle {
         @apply absolute h-15 xl:h-37.5;

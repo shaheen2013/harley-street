@@ -67,10 +67,10 @@ const AccordionItem: React.FC<{
                     onClick={() => onToggle(item.id)}
                     className="bg-white rounded-xl shadow-[0px_10px_80px_0px_#A8AEB733] p-5 flex justify-between items-center w-full cursor-pointer"
                 >
-                    <div className={`${isOpen ? 'text-gradient':'text-primary'} text-xl font-semibold leading-7.5 line-clamp-1`}>
+                    <div className={`${isOpen ? 'text-gradient':'text-primary'} text-xl font-semibold leading-7.5 text-left`}>
                         {item.question}
                     </div>
-                    <div className="bg-[#F1F5F9] w-8 h-8 rounded-full p-1 flex-center cursor-pointer">
+                    <div className="bg-[#F1F5F9] w-8 h-8 shrink-0 rounded-full p-1 flex-center cursor-pointer">
                         {isOpen ? <HiOutlineMinus /> : <HiOutlinePlus />}
                     </div>
                 </button>
