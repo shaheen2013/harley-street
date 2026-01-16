@@ -31,7 +31,7 @@ const PricingSection = () => {
                             <TextList title={'Consultant radiologist review of one scan study'}/>
                             <TextList title={'Email delivery'}/>
                         </div>
-                        <div className="mt-auto"><Button large={true} title={'Get Started'} type={'outline'}/></div>
+                        <div className="mt-auto"><Button large={true} title={'Get Started'} bgColor={'bg-white'} type={'outline'}/></div>
                     </div>
 
                     <div className="rounded-xl gradient-border relative">
@@ -72,7 +72,7 @@ const PricingSection = () => {
                             <TextList title={'Consultant radiologist review of one scan study'}/>
                             <TextList title={'Email delivery'}/>
                         </div>
-                        <div className="mt-auto"><Button large={true} title={'Get Started'} type={'outline'}/></div>
+                        <div className="mt-auto"><Button large={true} title={'Get Started'} bgColor={'bg-white'} type={'outline'}/></div>
                     </div>
                 </div>
 
