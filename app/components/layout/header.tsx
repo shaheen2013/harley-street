@@ -4,6 +4,7 @@ import Button from "@/components/ui/button";
 import logo from "@/assets/images/logo.svg"
 import Image from "next/image";
 import {FaChevronDown} from "react-icons/fa";
+import {CiMenuBurger} from "react-icons/ci";
 
 interface SubMenuItem {
     title: string;
@@ -76,12 +77,12 @@ const menuList: MenuItem[] = [
 const Header = () => {
     return (
         <div className="absolute top-0 w-full z-50">
-            <div className='flex items-center justify-between py-2 container mx-auto'>
-                <Link href={'/'}>
+            <div className='flex items-center justify-between py-2 container'>
+                <Link href={'/'} className="w-22.5 h-11 xl:w-36.25 xl:h-18">
                     <Image src={logo} width={145} height={72} alt="logo" className="object-contain"/>
                 </Link>
 
-                <nav className="flex items-center gap-7.5 ">
+                <nav className="hidden xl:flex items-center gap-7.5 ">
                     {menuList.map((item, index) => (
                         item.isSubMenu ? (
                             <div key={index} className="relative group">
@@ -108,9 +109,10 @@ const Header = () => {
                     ))}
                 </nav>
 
-                <div className="flex gap-4">
+                <div className="flex items-center gap-4">
                     <Button title={'Book online'}/>
-                    <Button title={'Clinicians'} type={'outline'}/>
+                    <div className="hidden xl:flex"><Button title={'Clinicians'} type={'outline'}/></div>
+                    <div className="xl:hidden text-2xl"><CiMenuBurger /></div>
                 </div>
             </div>
         </div>

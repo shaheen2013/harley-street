@@ -2,17 +2,22 @@ import React from 'react';
 import SectionTitle from "@/components/ui/sectionTitle";
 import TextList from "@/components/ui/textList";
 import Button from "@/components/ui/button";
+import Image from "next/image";
+import bgBottomVisual from "@/assets/images/bottom-visual-new.png";
 
 const PricingSection = () => {
     return (
-        <div id="pricing" className="relative overflow-hidden pb-20">
+        <div id="pricing" className="relative overflow-hidden pb-4 xl:pb-20">
             <div className="clip-bottom-large-circle"></div>
-            <div className="container mx-auto pt-62.5">
+            <div className="hidden xl:block absolute left-1/2 -top-[30%] -translate-x-1/2 z-10 -rotate-10">
+                <Image src={bgBottomVisual} alt='bgVisual' width={681} height={425}/>
+            </div>
+            <div className="container pt-24 xl:pt-62.5">
                 <div className="flex-center mb-12">
                     <SectionTitle title={'No Hidden Fees'} subtitle={'Transparent Pricing'}/>
                 </div>
-                <div className="grid grid-cols-3 gap-5">
-                    <div className="flex flex-col bg-white shadow-primary rounded-xl px-6 pt-14 pb-10.5">
+                <div className="grid grid-cols-1 xl:grid-cols-3 gap-5">
+                    <div className="flex flex-col bg-white shadow-primary rounded-xl px-4 xl:px-6 pt-6 xl:pt-14 pb-6 xl:pb-10.5">
                         <div className="flex flex-col items-center">
                             <h3 className="text-3xl leading-7 font-semibold">Written Report</h3>
                             <h5 className="mt-4 text-lg leading-6 font-medium text-gray-400">Comprehensive written
@@ -36,7 +41,7 @@ const PricingSection = () => {
                         </div>
                         <div className="flex flex-col bg-white shadow-primary rounded-xl px-6 pt-14 pb-10.5">
                             <div className="flex flex-col items-center">
-                                <h3 className="text-3xl leading-7 font-semibold">Report + Consultation</h3>
+                                <h3 className="text-3xl leading-7 font-semibold text-center">Report + Consultation</h3>
                                 <h5 className="mt-4 text-lg leading-6 font-medium text-gray-400">Report plus video
                                     discussion</h5>
                                 <h2 className="text-gradient mt-9 text-6xl font-semibold">£299</h2>

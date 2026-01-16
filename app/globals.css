@@ -23,7 +23,7 @@
 
 @layer base {
     .text-h1 {
-        @apply font-semibold text-[56px] leading-15;
+        @apply font-semibold text-[38px] xl:text-[56px] leading-[120%] xl:leading-15;
     }
 
     .text-gradient {
@@ -47,6 +47,27 @@
     .flex-center {
         @apply flex justify-center items-center;
     }
+    .container {
+        @apply container mx-auto px-4;
+    }
+    .clip-bottom-large-circle {
+        @apply absolute h-15 xl:h-37.5;
+        clip-path: ellipse(closest-side farthest-side at 50% -100%);
+        background: var(--color-blue-100);
+        width: 124%;
+        top: 0;
+        left: -12%;
+        z-index: 1;
+    }
+    .clip-top-large-circle {
+        @apply absolute h-15 xl:h-37.5;
+        clip-path: ellipse(closest-side farthest-side at 50% -100%);
+        background: #fff;
+        width: 124%;
+        top: 0;
+        left: -12%;
+        z-index: 1;
+    }
 
     input,
     textarea,
@@ -60,28 +81,6 @@
 }
 
 body {
-    .clip-bottom-large-circle {
-        clip-path: ellipse(closest-side farthest-side at 50% -100%);
-        background: var(--color-blue-100);
-        width: 124%;
-        height: 150px;
-        position: absolute;
-        top: 0;
-        left: -12%;
-        z-index: 1;
-    }
-
-    .clip-top-large-circle {
-        clip-path: ellipse(closest-side farthest-side at 50% -100%);
-        background: #fff;
-        width: 124%;
-        height: 150px;
-        position: absolute;
-        top: 0;
-        left: -12%;
-        z-index: 1;
-    }
-
     .cs-border {
         position: relative;
 

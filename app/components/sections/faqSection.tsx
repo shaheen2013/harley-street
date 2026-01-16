@@ -67,10 +67,10 @@ const AccordionItem: React.FC<{
                     onClick={() => onToggle(item.id)}
                     className="bg-white rounded-xl shadow-[0px_10px_80px_0px_#A8AEB733] p-5 flex justify-between items-center w-full cursor-pointer"
                 >
-                    <div className={`${isOpen ? 'text-gradient':'text-primary'} text-xl font-semibold leading-7.5 line-clamp-1`}>
+                    <div className={`${isOpen ? 'text-gradient':'text-primary'} text-xl font-semibold leading-7.5 text-left`}>
                         {item.question}
                     </div>
-                    <div className="bg-[#F1F5F9] w-8 h-8 rounded-full p-1 flex-center cursor-pointer">
+                    <div className="bg-[#F1F5F9] w-8 h-8 shrink-0 rounded-full p-1 flex-center cursor-pointer">
                         {isOpen ? <HiOutlineMinus /> : <HiOutlinePlus />}
                     </div>
                 </button>
@@ -100,12 +100,12 @@ const FaqSection: React.FC = () => {
     const right = ITEMS.filter((_, i) => i % 2 === 1);
 
     return (
-        <div id="fAQs" className="container mx-auto mt-10 mb-10">
+        <div id="fAQs" className="container mt-10 mb-10">
             <div className="flex-center text-center mb-14">
                 <SectionTitle title={"Frequently Asked Questions"} subtitle={"FAQ’s"} />
             </div>
 
-            <div className="grid grid-cols-2 gap-5">
+            <div className="grid grid-cols-1 xl:grid-cols-2 gap-5">
                 <div className="flex flex-col gap-3">
                     {left.map((it) => (
                         <AccordionItem key={it.id} item={it} isOpen={openId === it.id} onToggle={toggle} />
