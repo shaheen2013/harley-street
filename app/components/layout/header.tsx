@@ -1,10 +1,14 @@
-import React from 'react';
+'use client'
+import React, {useState} from 'react';
 import Link from "next/link";
 import Button from "@/components/ui/button";
 import logo from "@/assets/images/logo.svg"
 import Image from "next/image";
-import {FaChevronDown} from "react-icons/fa";
+import {FaChevronDown, FaTimes} from "react-icons/fa";
 import {CiMenuBurger} from "react-icons/ci";
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
+import {IoMdClose} from "react-icons/io";
 
 interface SubMenuItem {
     title: string;
@@ -17,6 +21,11 @@ interface MenuItem {
     isSubMenu: boolean;
     subMenu?: SubMenuItem[];
 }
+
+function cn(...inputs: ClassValue[]) {
+    return twMerge(clsx(inputs));
+}
+
 const menuList: MenuItem[] = [
     {
         title: 'Female',
@@ -75,13 +84,21 @@ const menuList: MenuItem[] = [
     }
 ];
 const Header = () => {
+    const [isOpen, setIsOpen] = useState(false);
+    const [activeSubMenu, setActiveSubMenu] = useState<number | null>(null);
+
+    const toggleSubMenu = (index: number) => {
+        setActiveSubMenu(activeSubMenu === index ? null : index);
+    };
+
     return (
         <div className="absolute top-0 w-full z-50">
-            <div className='flex items-center justify-between py-2 container'>
+            <div className='flex items-center justify-between py-2 container relative z-50 bg-transparent'>
                 <Link href={'/'} className="w-22.5 h-11 xl:w-36.25 xl:h-18">
                     <Image src={logo} width={145} height={72} alt="logo" className="object-contain"/>
                 </Link>
 
+                {/* Desktop Navigation */}
                 <nav className="hidden xl:flex items-center gap-7.5 ">
                     {menuList.map((item, index) => (
                         item.isSubMenu ? (
@@ -112,7 +129,69 @@ const Header = () => {
                 <div className="flex items-center gap-4">
                     <Button title={'Book online'}/>
                     <div className="hidden xl:flex"><Button title={'Clinicians'} type={'outline'}/></div>
-                    <div className="xl:hidden text-2xl"><CiMenuBurger /></div>
+                    <button
+                        className="xl:hidden text-3xl cursor-pointer"
+                        onClick={() => setIsOpen(!isOpen)}
+                    >
+                        {isOpen ? <IoMdClose /> : <CiMenuBurger />}
+                    </button>
+                </div>
+            </div>
+
+            {/* Mobile Navigation Menu */}
+            <div className={cn(
+                "fixed inset-0 bg-white z-40 transition-transform duration-300 ease-in-out transform xl:hidden",
+                isOpen ? "translate-x-0" : "translate-x-full"
+            )}>
+                <div className="flex flex-col h-full pt-24 px-6 pb-10 overflow-y-auto">
+                    <nav className="flex flex-col gap-4">
+                        {menuList.map((item, index) => (
+                            <div key={index} className="border-b border-gray-100">
+                                {item.isSubMenu ? (
+                                    <>
+                                        <button
+                                            onClick={() => toggleSubMenu(index)}
+                                            className="flex items-center justify-between w-full font-semibold"
+                                        >
+                                            <span>{item.title}</span>
+                                            <FaChevronDown className={cn(
+                                                "text-sm transition-transform duration-200",
+                                                activeSubMenu === index && "rotate-180"
+                                            )} />
+                                        </button>
+                                        <ul className={cn(
+                                            "mt-2 space-y-3 overflow-hidden transition-all duration-300",
+                                            activeSubMenu === index ? "max-h-48 opacity-100" : "max-h-0 opacity-0"
+                                        )}>
+                                            {item.subMenu?.map((sub, sidx) => (
+                                                <li key={sidx} className="pl-4">
+                                                    <Link
+                                                        href={sub.href}
+                                                        onClick={() => setIsOpen(false)}
+                                                        className="text-base  font-medium"
+                                                    >
+                                                        {sub.title}
+                                                    </Link>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </>
+                                ) : (
+                                    <Link
+                                        href={item.href}
+                                        onClick={() => setIsOpen(false)}
+                                        className="font-semibold block"
+                                    >
+                                        {item.title}
+                                    </Link>
+                                )}
+                            </div>
+                        ))}
+                    </nav>
+
+                    <div className="mt-8 flex flex-col gap-4">
+                        <Button title={'Clinicians'} type={'outline'} className="w-full text-center"/>
+                    </div>
                 </div>
             </div>
         </div>

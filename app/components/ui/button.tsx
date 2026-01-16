@@ -19,7 +19,7 @@ const Button: React.FC<ButtonProps> = ({title, type, large, className}) => {
                         </div>
                     </button> :
                     <button type="button"
-                            className={`${large ? 'w-full' : 'w-fit'} text-nowrap text-white font-semibold text-xs xl:text-sm leading-4.5 bg-gradient px-3 md:px-7 py-3 md:py-4 rounded-4xl cursor-pointer ${className || ''}`}>
+                            className={`${large ? 'w-full' : 'w-fit'} text-nowrap text-white font-semibold text-xs xl:text-sm leading-4.5 bg-gradient px-4 md:px-7 py-2.5 md:py-4 rounded-4xl cursor-pointer ${className || ''}`}>
                         {title}
                     </button>
             }
