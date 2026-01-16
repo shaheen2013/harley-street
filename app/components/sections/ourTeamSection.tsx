@@ -61,7 +61,7 @@ const OurTeamSection: React.FC = () => {
                 <Image src={bgVisual} alt='bgVisual' width={681} height={425}/>
             </div>
 
-            <div className="container mx-auto relative">
+            <div className="container relative">
                 <div className="flex justify-between items-end">
                     <SectionTitle title={'Meet Your Specialists'} subtitle={'Our team'} />
                     <Button title={'Show more doctors'} />

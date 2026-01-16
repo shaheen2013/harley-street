@@ -34,7 +34,7 @@ const HowItWorkSection = () => {
                 <Image src={bgVisual} alt='bgVisual' width={681} height={425}/>
             </div>*/}
 
-            <div className="container mx-auto">
+            <div className="container">
                 <SectionTitle title={'How It Works'} subtitle={'Step by Step'}/>
                 <div className="grid grid-cols-3 gap-4 mt-14">
                     <div className="cs-border flex gap-9 rounded-xl bg-[#EDF7FA] p-8.5 border border-[#31E4C4] border-b-0 rounded-bl-none rounded-br-none relative">

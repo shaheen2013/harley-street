@@ -41,22 +41,22 @@ const cardData = [
 
 const YouWillReceivedSection = () => {
     return (
-        <div id="what-you-receive" className="bg-blue-100  relative pt-50 pb-1 overflow-hidden">
+        <div id="what-you-receive" className="bg-blue-100  relative pt-24 xl:pt-50 pb-1 overflow-hidden">
             <div className="clip-top-large-circle top-0"></div>
-            <div className="absolute left-1/2  top-16 -translate-x-1/2 ">
+            <div className="hidden xl:absolute left-1/2  top-16 -translate-x-1/2 ">
                 <Image src={bgVisual} alt='bgVisual' width={681} height={425}/>
             </div>
 
-            <div className="container mx-auto relative">
+            <div className="container relative">
                 <div className="flex justify-between items-center">
                     <SectionTitle title={'Second Opinion Request'} subtitle={'You Will Receive For Each '} />
-                    <div className="flex gap-4">
+                    <div className="hidden xl:flex gap-4">
                         <div className="cursor-pointer w-12 h-12 rounded-full bg-primary text-white flex-center text-xl rotate-180"><FiChevronRight /></div>
                         <div className="cursor-pointer w-12 h-12 rounded-full bg-gradient text-white flex-center text-xl"><FiChevronRight /></div>
                     </div>
                 </div>
 
-                <div className="flex flex-nowrap gap-5 mt-14">
+                <div className="flex flex-nowrap gap-5 mt-8 xl:mt-14">
                     {cardData.map((card, idx) => (
                         <div
                             key={idx}
@@ -71,6 +71,11 @@ const YouWillReceivedSection = () => {
                             </Link>
                         </div>
                     ))}
+                </div>
+
+                <div className="xl:hidden flex justify-center gap-4 mt-10">
+                    <div className="cursor-pointer w-12 h-12 rounded-full bg-primary text-white flex-center text-xl rotate-180"><FiChevronRight /></div>
+                    <div className="cursor-pointer w-12 h-12 rounded-full bg-gradient text-white flex-center text-xl"><FiChevronRight /></div>
                 </div>
             </div>
         </div>

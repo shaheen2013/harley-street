@@ -7,7 +7,7 @@ const PricingSection = () => {
     return (
         <div id="pricing" className="relative overflow-hidden pb-20">
             <div className="clip-bottom-large-circle"></div>
-            <div className="container mx-auto pt-62.5">
+            <div className="container pt-62.5">
                 <div className="flex-center mb-12">
                     <SectionTitle title={'No Hidden Fees'} subtitle={'Transparent Pricing'}/>
                 </div>

@@ -9,8 +9,8 @@ interface SectionTitleProps {
 const SectionTitle: React.FC<SectionTitleProps> = ({title, subtitle, subtitleSize}) => {
     return (
         <div>
-            <span className={`${subtitleSize ? subtitleSize : 'text-[36px]'} leading-[120%]`}>{subtitle}</span> <br/>
-            <span className="text-[48px] leading-[120%] font-semibold text-gradient">{title}</span>
+            <span className={`${subtitleSize ? subtitleSize : 'text-[20px] xl:text-[36px]'} leading-[120%]`}>{subtitle}</span> <br/>
+            <span className="text-[28px] xl:text-[48px] leading-[120%] font-semibold text-gradient">{title}</span>
         </div>
     );
 };
