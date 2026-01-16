@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import SectionTitle from "@/components/ui/sectionTitle";
 import Image from "next/image";
 import arrowRightIcon from "@/assets/icons/right-arrow.svg";
@@ -43,18 +43,46 @@ const cardData = [
 
 const YouWillReceivedSection = () => {
     const sliderRef = useRef<HTMLDivElement>(null);
+    const [isScrolling, setIsScrolling] = useState(false);
+
+    const smoothScroll = (target: HTMLElement, distance: number, duration: number = 600) => {
+        const start = target.scrollLeft;
+        const startTime = performance.now();
+
+        const easeInOutCubic = (t: number): number => {
+            return t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
+        };
+
+        const scroll = (currentTime: number) => {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const easeProgress = easeInOutCubic(progress);
+
+            target.scrollLeft = start + distance * easeProgress;
+
+            if (progress < 1) {
+                requestAnimationFrame(scroll);
+            } else {
+                setIsScrolling(false);
+            }
+        };
+
+        requestAnimationFrame(scroll);
+    };
 
     const scrollLeft = () => {
-        if (sliderRef.current) {
+        if (sliderRef.current && !isScrolling) {
+            setIsScrolling(true);
             const scrollAmount = sliderRef.current.offsetWidth > 768 ? 340 : 320;
-            sliderRef.current.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            smoothScroll(sliderRef.current, -scrollAmount);
         }
     };
 
     const scrollRight = () => {
-        if (sliderRef.current) {
+        if (sliderRef.current && !isScrolling) {
+            setIsScrolling(true);
             const scrollAmount = sliderRef.current.offsetWidth > 768 ? 340 : 320;
-            sliderRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            smoothScroll(sliderRef.current, scrollAmount);
         }
     };
 
@@ -71,14 +99,16 @@ const YouWillReceivedSection = () => {
                     <div className="hidden xl:flex gap-4">
                         <button 
                             onClick={scrollLeft} 
-                            className="cursor-pointer w-12 h-12 rounded-full bg-primary text-white flex-center text-xl rotate-180 hover:opacity-90 transition-opacity"
+                            disabled={isScrolling}
+                            className="cursor-pointer w-12 h-12 rounded-full bg-primary text-white flex-center text-xl rotate-180 hover:scale-110 hover:shadow-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                             aria-label="Previous"
                         >
                             <FiChevronRight />
                         </button>
                         <button 
                             onClick={scrollRight} 
-                            className="cursor-pointer w-12 h-12 rounded-full bg-gradient text-white flex-center text-xl hover:opacity-90 transition-opacity"
+                            disabled={isScrolling}
+                            className="cursor-pointer w-12 h-12 rounded-full bg-gradient text-white flex-center text-xl hover:scale-110 hover:shadow-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                             aria-label="Next"
                         >
                             <FiChevronRight />
@@ -86,11 +116,11 @@ const YouWillReceivedSection = () => {
                     </div>
                 </div>
 
-                <div ref={sliderRef} className="flex flex-nowrap gap-5 mt-8 xl:mt-14 overflow-x-hidden scrollbar-hide scroll-smooth">
+                <div ref={sliderRef} className="flex flex-nowrap gap-5 mt-8 xl:mt-14 overflow-x-hidden scrollbar-hide">
                     {cardData.map((card, idx) => (
                         <div
                             key={idx}
-                            className="w-76.25 shrink-0 rounded-xl shadow-primary bg-white px-5 pb-5 pt-10.5"
+                            className="w-76.25 shrink-0 rounded-xl shadow-primary bg-white px-5 pb-5 pt-10.5 transition-transform duration-300 hover:scale-105"
                         >
                             <Image src={card.icon} alt="icon" width={52} height={52} className="object-contain max-h-12.5" />
                             <h4 className="text-xl font-semibold my-5 line-clamp-1">{card.title}</h4>
@@ -106,14 +136,16 @@ const YouWillReceivedSection = () => {
                 <div className="xl:hidden flex justify-center gap-4 mt-10">
                     <button 
                         onClick={scrollLeft} 
-                        className="cursor-pointer w-12 h-12 rounded-full bg-primary text-white flex-center text-xl rotate-180 hover:opacity-90 transition-opacity"
+                        disabled={isScrolling}
+                        className="cursor-pointer w-12 h-12 rounded-full bg-primary text-white flex-center text-xl rotate-180 hover:scale-110 hover:shadow-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                         aria-label="Previous"
                     >
                         <FiChevronRight />
                     </button>
                     <button 
                         onClick={scrollRight} 
-                        className="cursor-pointer w-12 h-12 rounded-full bg-gradient text-white flex-center text-xl hover:opacity-90 transition-opacity"
+                        disabled={isScrolling}
+                        className="cursor-pointer w-12 h-12 rounded-full bg-gradient text-white flex-center text-xl hover:scale-110 hover:shadow-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                         aria-label="Next"
                     >
                         <FiChevronRight />
