@@ -109,13 +109,13 @@ const HeroSection = () => {
                         <div className="absolute -top-9 left-auto z-10">
                             <Image src={heroReviewTopImage} width={437} height={265} alt="google Image" className="w-109.25 h-66.25"/>
                         </div>
-                        <div className="absolute -bottom-15.75 xl:-bottom-[62px] left-auto z-10">
+                        <div className="absolute -bottom-15.75 xl:-bottom-15.5 left-auto z-10">
                             <Image src={heroReviewBackImage} width={437} height={265} alt="google Image" className="w-109.25 h-66.25"/>
                         </div>
-                        <div className="absolute -top-6 xl:-top-11 left-5 z-30">
+                        <div className="absolute -top-6 xl:-top-11 left-5 z-30 animate-shrink-bounce">
                             <Image src={googleImage} width={244} height={98} alt="google Image" className="w-33 h-13.5 xl:w-61 xl:h-24.5 object-contain"/>
                         </div>
-                        <div className="absolute -bottom-6 xl:-bottom-11 right-5 z-30">
+                        <div className="absolute -bottom-6 xl:-bottom-11 right-5 z-30 animate-shrink-bounce" style={{ animationDelay: '0.5s' }}>
                             <Image src={starGroupImage} width={244} height={98} alt="google Image" className="w-33 h-13.5 xl:w-61 xl:h-24.5 object-contain"/>
                         </div>
                         <div className="absolute top-0 left-0 z-20 w-full h-8 xl:h-24 rounded-xl bg-[linear-gradient(90deg,#135269_-17.04%,rgba(19,82,105,0)_100%)]"></div>

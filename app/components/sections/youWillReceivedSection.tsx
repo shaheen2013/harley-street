@@ -1,5 +1,6 @@
-'use client'
-import React from 'react';
+'use client';
+
+import React, { useRef, useState } from 'react';
 import SectionTitle from "@/components/ui/sectionTitle";
 import Image from "next/image";
 import arrowRightIcon from "@/assets/icons/right-arrow.svg";
@@ -11,7 +12,6 @@ import healthIcon from "@/assets/icons/health.svg";
 import Link from "next/link";
 import {FiChevronRight} from "react-icons/fi";
 import bgVisual from "@/assets/images/center-visual.png";
-import {useScrollAnimation} from "@/hooks/useScrollAnimation";
 
 const cardData = [
     {
@@ -42,7 +42,85 @@ const cardData = [
 ];
 
 const YouWillReceivedSection = () => {
-    const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
+    const sliderRef = useRef<HTMLDivElement>(null);
+    const [isScrolling, setIsScrolling] = useState(false);
+    // Show first 2 cards immediately, rest will animate in
+    const [visibleCards, setVisibleCards] = useState<Set<number>>(new Set([0, 1]));
+    
+    // Use Intersection Observer for scroll animation on individual cards
+    React.useEffect(() => {
+        const cards = sliderRef.current?.querySelectorAll('.card-item');
+        if (!cards || cards.length === 0) return;
+        
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        const index = parseInt(entry.target.getAttribute('data-index') || '0');
+                        setVisibleCards(prev => new Set([...prev, index]));
+                    }
+                });
+            },
+            { threshold: 0.1, rootMargin: '0px 0px -100px 0px' }
+        );
+        
+        // Check if cards are already visible on mount
+        cards.forEach((card, index) => {
+            const rect = card.getBoundingClientRect();
+            const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+            if (isVisible) {
+                setVisibleCards(prev => new Set([...prev, index]));
+            }
+            observer.observe(card);
+        });
+        
+        return () => {
+            cards.forEach((card) => {
+                observer.unobserve(card);
+            });
+        };
+    }, []);
+
+    const smoothScroll = (target: HTMLElement, distance: number, duration: number = 600) => {
+        const start = target.scrollLeft;
+        const startTime = performance.now();
+
+        const easeInOutCubic = (t: number): number => {
+            return t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
+        };
+
+        const scroll = (currentTime: number) => {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const easeProgress = easeInOutCubic(progress);
+
+            target.scrollLeft = start + distance * easeProgress;
+
+            if (progress < 1) {
+                requestAnimationFrame(scroll);
+            } else {
+                setIsScrolling(false);
+            }
+        };
+
+        requestAnimationFrame(scroll);
+    };
+
+    const scrollLeft = () => {
+        if (sliderRef.current && !isScrolling) {
+            setIsScrolling(true);
+            const scrollAmount = sliderRef.current.offsetWidth > 768 ? 340 : 320;
+            smoothScroll(sliderRef.current, -scrollAmount);
+        }
+    };
+
+    const scrollRight = () => {
+        if (sliderRef.current && !isScrolling) {
+            setIsScrolling(true);
+            const scrollAmount = sliderRef.current.offsetWidth > 768 ? 340 : 320;
+            smoothScroll(sliderRef.current, scrollAmount);
+        }
+    };
 
     return (
         <div id="what-you-receive" className="bg-blue-100  relative pt-24 xl:pt-50 pb-1 overflow-hidden">
@@ -55,17 +133,36 @@ const YouWillReceivedSection = () => {
                 <div className="flex justify-between items-center">
                     <SectionTitle title={'Second Opinion Request'} subtitle={'You Will Receive For Each '} />
                     <div className="hidden xl:flex gap-4">
-                        <div className="cursor-pointer w-12 h-12 rounded-full bg-primary text-white flex-center text-xl rotate-180"><FiChevronRight /></div>
-                        <div className="cursor-pointer w-12 h-12 rounded-full bg-gradient text-white flex-center text-xl"><FiChevronRight /></div>
+                        <button 
+                            onClick={scrollLeft} 
+                            disabled={isScrolling}
+                            className="cursor-pointer w-12 h-12 rounded-full bg-primary text-white flex-center text-xl rotate-180 hover:scale-110 hover:shadow-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                            aria-label="Previous"
+                        >
+                            <FiChevronRight />
+                        </button>
+                        <button 
+                            onClick={scrollRight} 
+                            disabled={isScrolling}
+                            className="cursor-pointer w-12 h-12 rounded-full bg-gradient text-white flex-center text-xl hover:scale-110 hover:shadow-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                            aria-label="Next"
+                        >
+                            <FiChevronRight />
+                        </button>
                     </div>
                 </div>
 
-                <div ref={ref} className="flex flex-nowrap gap-5 mt-8 xl:mt-14">
+                <div 
+                    ref={sliderRef}
+                    className="flex flex-nowrap gap-5 mt-8 xl:mt-14 overflow-x-auto scrollbar-hide scroll-smooth"
+                    style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+                >
                     {cardData.map((card, idx) => (
                         <div
                             key={idx}
-                            className={`w-76.25 shrink-0 rounded-xl shadow-primary bg-white px-5 pb-5 pt-10.5 transition-all duration-700 ease-out ${
-                                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'
+                            data-index={idx}
+                            className={`card-item w-76.25 shrink-0 rounded-xl shadow-primary bg-white px-5 pb-5 pt-10.5 transition-all duration-700 ease-out hover:scale-105 ${
+                                visibleCards.has(idx) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'
                             }`}
                             style={{ transitionDelay: `${idx * 150}ms` }}
                         >
@@ -81,8 +178,22 @@ const YouWillReceivedSection = () => {
                 </div>
 
                 <div className="xl:hidden flex justify-center gap-4 mt-10">
-                    <div className="cursor-pointer w-12 h-12 rounded-full bg-primary text-white flex-center text-xl rotate-180"><FiChevronRight /></div>
-                    <div className="cursor-pointer w-12 h-12 rounded-full bg-gradient text-white flex-center text-xl"><FiChevronRight /></div>
+                    <button 
+                        onClick={scrollLeft} 
+                        disabled={isScrolling}
+                        className="cursor-pointer w-12 h-12 rounded-full bg-primary text-white flex-center text-xl rotate-180 hover:scale-110 hover:shadow-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                        aria-label="Previous"
+                    >
+                        <FiChevronRight />
+                    </button>
+                    <button 
+                        onClick={scrollRight} 
+                        disabled={isScrolling}
+                        className="cursor-pointer w-12 h-12 rounded-full bg-gradient text-white flex-center text-xl hover:scale-110 hover:shadow-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                        aria-label="Next"
+                    >
+                        <FiChevronRight />
+                    </button>
                 </div>
             </div>
         </div>

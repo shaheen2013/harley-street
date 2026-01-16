@@ -78,4 +78,26 @@
             @apply outline-none ring-0 shadow-none border-gray-400;
         }
     }
+
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+@keyframes shrinkBounce {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.85);
+    }
+}
+
+.animate-shrink-bounce {
+    animation: shrinkBounce 5s ease-in-out infinite;
 }
