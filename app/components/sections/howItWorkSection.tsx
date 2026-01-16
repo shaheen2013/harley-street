@@ -89,23 +89,23 @@ const HowItWorkSection = () => {
                         );
                     })}
                 </div>
-                <div className="flex flex-col xl:flex-row items-center justify-between gap-10 p-6 xl:p-12 border bg-[#EDF7FA] border-[#31E4C4] rounded-xl rounded-tl-none -mt-px">
+                <div className="flex flex-col xl:flex-row flex-col xl:flex-row items-center justify-between gap-5 xl:gap-10 p-4 xl:p-6 xl:p-12 border bg-[#EDF7FA] border-[#31E4C4] rounded-xl rounded-tl-none -mt-px">
                     {activeTab === 1 && (
                         <>
                             <div className="max-w-137 w-full">
-                                <h3 className="text-3xl xl:text-[42px] font-medium leading-[120%]">Secure upload or NHS retrieval</h3>
-                                <p className="mt-5.5 font-medium leading-5.5">
+                                <h3 className="text-[24px] xl:text-3xl xl:text-[42px] font-medium leading-[120%]">Secure upload or NHS retrieval</h3>
+                                <p className="mt-3 xl:mt-5.5 font-medium leading-5.5 text-sm xl:text-base">
                                     Choose how you&#39;d like to share your scans with us. Upload directly through our GDPR-compliant portal, or authorize us to retrieve your images from the NHS Image Exchange Portal (IEP). Either way, your data is encrypted and handled with the highest security standards.
                                 </p>
-                                <Link href="" className="mt-3.5 mb-7 flex text-gradient font-medium leading-5.5">Secure Link</Link>
-                                <div className="flex flex-col gap-5 mb-9">
+                                <Link href="" className="mt-3.5 mb-7 flex text-gradient font-semibold leading-5.5">Secure Link</Link>
+                                <div className="hidden xl:flex flex-col gap-5 mb-9">
                                     <TextList title="DICOM files accepted" subTitle="MRI, CT, X-ray, Ultrasound, and Mammogram formats" />
                                     <TextList title="NHS IEP integration" subTitle="Direct retrieval from UK NHS hospitals" />
                                     <TextList title="Bank-level encryption" subTitle="Your medical data is always secure and confidential" />
                                 </div>
-                                <Button title={'Start Upload Process'}/>
+                                <Button title={'Start Upload Process'} className={'w-full xl:w-fit'}/>
                             </div>
-                            <div className="max-w-117 w-full rounded-xl gradient-border">
+                            <div className="order-first xl:order-last max-w-117 w-full rounded-xl gradient-border">
                                 <div className="bg-white p-6 h-full rounded-xl">
                                     <div className="flex justify-between items-center mb-6">
                                         <div className="flex gap-3 items-center">
@@ -119,8 +119,8 @@ const HowItWorkSection = () => {
                                             <div className="flex gap-3 items-center">
                                                 <div className="w-8 h-8 rounded-md flex-center bg-green-200 text-2xl text-green-700"><FaRegFileLines /></div>
                                                 <div>
-                                                    <div className="font-semibold">MRI_Brain_Scan.dcm</div>
-                                                    <div className="text-gray-400 text-sm">Uploaded . 24.5 MB</div>
+                                                    <div className="font-semibold text-xs xl:text-base">MRI_Brain_Scan.dcm</div>
+                                                    <div className="text-gray-400 text-xs xl:text-sm">Uploaded . 24.5 MB</div>
                                                 </div>
                                             </div>
                                             <div className="text-2xl text-green-700"><FiCheckCircle /></div>
@@ -130,8 +130,8 @@ const HowItWorkSection = () => {
                                             <div className="flex gap-3 items-center">
                                                 <div className="w-8 h-8 rounded-md flex-center bg-blue-200 text-2xl text-blue-700"><FaRegFileLines /></div>
                                                 <div>
-                                                    <div className="font-semibold">MRI_Brain_Scan.dcm</div>
-                                                    <div className="text-gray-400 text-sm">Uploaded . 24.5 MB</div>
+                                                    <div className="font-semibold text-xs xl:text-base">Original_Report.pdf</div>
+                                                    <div className="text-gray-400 text-xs xl:text-sm">Uploaded . 1.2 MB</div>
                                                 </div>
                                             </div>
                                             <div className="text-2xl text-green-700"><FiCheckCircle /></div>
@@ -141,8 +141,8 @@ const HowItWorkSection = () => {
                                             <div className="flex gap-3 items-center">
                                                 <div className="w-8 h-8 rounded-md flex-center bg-blue-200 text-2xl text-blue-700"><MdOutlineFileUpload/></div>
                                                 <div>
-                                                    <div className="font-semibold">Drop files or click to upload</div>
-                                                    <div className="text-blue-700 text-sm">DICOM, PDF, JPEG, accept</div>
+                                                    <div className="font-semibold text-xs xl:text-base">Drop files or click to upload</div>
+                                                    <div className="text-blue-700 text-xs xl:text-sm">DICOM, PDF, JPEG, accept</div>
                                                 </div>
                                             </div>
                                             <div className="text-2xl text-green-700"><FiCheckCircle /></div>
@@ -153,7 +153,7 @@ const HowItWorkSection = () => {
                                                 <div className="font-semibold">Status</div>
                                                 <div className="bg-green-200 text-sm rounded-full px-2 py-1 font-medium text-green-700">Ready for Review</div>
                                             </div>
-                                            <div className="flex-center bg-green-700 p-3 text-white rounded-xl mt-4 cursor-pointer hover:bg-green-800 transition-colors">Submit for Expert Review</div>
+                                            <div className="flex-center bg-green-700 p-3 text-sm text-white rounded-xl mt-4 cursor-pointer hover:bg-green-800 transition-colors">Submit for Expert Review</div>
                                         </div>
                                     </div>
                                 </div>
