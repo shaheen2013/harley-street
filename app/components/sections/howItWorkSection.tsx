@@ -26,7 +26,7 @@ const demoData = [
 
 const HowItWorkSection = () => {
     return (
-        <div className="container mx-auto">
+        <div id="how-it-works" className="container mx-auto">
             <SectionTitle title={'How It Works'} subtitle={'Step by Step'}/>
             <div className="grid grid-cols-3 gap-4 mt-14">
                 <div className="flex gap-9 rounded-xl bg-[#EDF7FA] p-8.5 border border-[#31E4C4] border-b-0 rounded-bl-none rounded-br-none relative">

@@ -20,12 +20,12 @@ interface SectionItem {
 }
 
 const initialSections: SectionItem[] = [
-    {title: 'Clarity', href: '/clarity', isActive: true},
-    {title: 'What You Receive', href: '/what-you-receive', isActive: false},
-    {title: 'How It Works', href: '/how-it-works', isActive: false},
-    {title: 'Specialist', href: '/specialist', isActive: false},
-    {title: 'Pricing', href: '/pricing', isActive: false},
-    {title: 'FAQs', href: '/fAQs', isActive: false},
+    {title: 'Clarity', href: 'clarity', isActive: true},
+    {title: 'What You Receive', href: 'what-you-receive', isActive: false},
+    {title: 'How It Works', href: 'how-it-works', isActive: false},
+    {title: 'Specialist', href: 'specialist', isActive: false},
+    {title: 'Pricing', href: 'pricing', isActive: false},
+    {title: 'FAQs', href: 'fAQs', isActive: false},
 ];
 
 const HeroSection = () => {

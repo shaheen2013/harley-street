@@ -5,7 +5,7 @@ import Button from "@/components/ui/button";
 
 const PricingSection = () => {
     return (
-        <div className="container mx-auto">
+        <div id="pricing" className="container mx-auto">
             <div className="flex-center mb-12">
                 <SectionTitle title={'No Hidden Fees'} subtitle={'Transparent Pricing'}/>
             </div>

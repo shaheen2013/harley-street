@@ -53,7 +53,7 @@ const teamMembers: TeamMember[] = [
 
 const OurTeamSection: React.FC = () => {
     return (
-        <div
+        <div id="specialist"
             className="bg-size-[100%_100%] bg-top bg-no-repeat  pt-42.5 pb-24 relative mb-20 overflow-hidden"
             style={{ backgroundImage: `url(${bgImage.src})` }}
         >
