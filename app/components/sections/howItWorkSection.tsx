@@ -39,7 +39,7 @@ const tabsData = [
 
 const HowItWorkSection = () => {
     const [activeTab, setActiveTab] = useState(1);
-    
+
     const handleTabClick = (tabId: number) => {
         setActiveTab(tabId);
     };
@@ -68,10 +68,10 @@ const HowItWorkSection = () => {
                                         handleTabClick(tab.id);
                                     }
                                 }}
-                                className={`min-w-76.25 flex gap-9 rounded-xl p-8.5 cursor-pointer transition-all relative
+                                className={`min-w-76.25 flex gap-9 rounded-xl p-8.5 cursor-pointer relative
                                     ${isActive 
                                         ? 'bg-[#EDF7FA] border border-[#31E4C4] border-b-0 rounded-b-none z-20' 
-                                        : 'bg-white shadow-primary mb-4 hover:shadow-lg z-10'
+                                        : 'bg-white shadow-primary mb-4 hover:shadow-lg z-40'
                                     }`}
                             >
                                 <div className="shrink-0 w-15 h-15 rounded-full text-white flex-center bg-green-700 p-3 text-3xl">
@@ -81,14 +81,32 @@ const HowItWorkSection = () => {
                                     <div className="text-xl font-semibold line-clamp-1">{tab.title}</div>
                                     <p className="mt-5 font-medium line-clamp-3 leading-4.5">{tab.description}</p>
                                 </div>
-                                {isActive && activeTab !== 3 && (
-                                    <div className="absolute w-4 h-4 bg-white border-l border-b border-[#31E4C4] -bottom-px -right-4 rounded-bl-lg hidden md:block"></div>
+                                {isActive && activeTab === 1 && (
+                                    <>
+                                        <div className="absolute w-[104%] h-10 bg-[#EDF7FA] -bottom-1 left-0"></div>
+                                        <div className="absolute w-4 sm:w-10 h-10 bg-[white] border-l border-b border-[#31E4C4] bottom-0 -right-4 sm:-right-10 rounded-bl-xl"></div>
+                                    </>
+                                )}
+                                {isActive && activeTab === 2 && (
+                                    <>
+                                        <div className="absolute w-[104%] h-10 bg-[#EDF7FA] -bottom-1 left-0"></div>
+                                        <div className="absolute w-4 sm:w-10 h-10 bg-[white] border-l border-b border-[#31E4C4] bottom-0 -right-4 sm:-right-10 rounded-bl-xl"></div>
+
+                                        <div className="absolute w-100 h-10 bg-[#EDF7FA] -bottom-1 -left-2"></div>
+                                        <div className="absolute w-4 sm:w-10 h-10 bg-[white] border-r border-b border-[#31E4C4] bottom-0 -left-4 sm:-left-10 rounded-br-xl"></div>
+                                    </>
+                                )}
+                                {isActive && activeTab === 3 && (
+                                    <>
+                                        <div className="absolute w-100 h-10 bg-[#EDF7FA] -bottom-1 -left-2"></div>
+                                        <div className="absolute w-4 sm:w-10 h-10 bg-[white] border-r border-b border-[#31E4C4] bottom-0 -left-4 sm:-left-10 rounded-br-xl"></div>
+                                    </>
                                 )}
                             </div>
                         );
                     })}
                 </div>
-                <div className="flex flex-col xl:flex-row items-center justify-between gap-5 xl:gap-10 p-4 xl:p-6 xl:p-12 border bg-[#EDF7FA] border-[#31E4C4] rounded-xl rounded-tl-none -mt-px">
+                <div className={`flex flex-col xl:flex-row items-center justify-between gap-5 xl:gap-10 p-6 xl:p-12 border bg-[#EDF7FA] border-[#31E4C4] rounded-xl ${activeTab === 3 ? 'rounded-tr-none rounded-tl-xl' : ''} ${activeTab === 2 ? 'rounded-tr-xl rounded-tl-xl' : ''} rounded-tl-none -mt-px`}>
                     {activeTab === 1 && (
                         <>
                             <div className="max-w-137 w-full">
@@ -146,7 +164,7 @@ const HowItWorkSection = () => {
                                             </div>
                                             <div className="text-2xl text-green-700"><FiCheckCircle /></div>
                                         </div>
-                                        
+
                                         <div className="border-t border-gray-300">
                                             <div className="flex justify-between items-center mt-4">
                                                 <div className="font-semibold">Status</div>
@@ -205,7 +223,7 @@ const HowItWorkSection = () => {
                                             <div className="font-semibold mb-2">Specific Questions</div>
                                             <div className="text-sm text-blue-700">Click to add your questions for the radiologist</div>
                                         </div>
-                                        
+
                                         <div className="border-t border-gray-300">
                                             <div className="flex justify-between items-center mt-4">
                                                 <div className="font-semibold">Progress</div>
@@ -269,7 +287,7 @@ const HowItWorkSection = () => {
                                                 </div>
                                             </div>
                                         </div>
-                                        
+
                                         <div className="border-t border-gray-300">
                                             <div className="flex justify-between items-center mt-4">
                                                 <div className="font-semibold">Est. Completion</div>
