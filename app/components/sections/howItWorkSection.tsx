@@ -3,12 +3,12 @@ import SectionTitle from "@/components/ui/sectionTitle";
 import {AiOutlineFileText} from "react-icons/ai";
 import {LuFileSearch} from "react-icons/lu";
 import {MdOutlineFileUpload} from "react-icons/md";
-import Image from "next/image";
-import uploadBg from "@/assets/images/upload-scan.png";
 import Link from "next/link";
 import TextList from "@/components/ui/textList";
 import Button from "@/components/ui/button";
-import bgVisual from "@/assets/images/center-visual.png";
+import {GoDatabase} from "react-icons/go";
+import {FiCheckCircle} from "react-icons/fi";
+import {FaRegFileLines} from "react-icons/fa6";
 
 const demoData = [
     {
@@ -83,8 +83,59 @@ const HowItWorkSection = () => {
 
                         <Button title={'Start Upload Process'}/>
                     </div>
-                    <div className="max-w-117 w-full">
-                        <Image src={uploadBg} alt="upload bg" width={468} height={458} className="object-contain"/>
+                    <div className="max-w-117 w-full rounded-xl gradient-border">
+                        <div className="bg-white p-6 h-full rounded-xl">
+                            <div className="flex justify-between items-center mb-6">
+                                <div className="flex gap-3 items-center">
+                                    <div className="text-2xl text-green-700"><MdOutlineFileUpload/></div>
+                                    <div className="font-semibold">Upload Portal</div>
+                                </div>
+                                <div className="text-2xl text-gray-400"><GoDatabase /></div>
+                            </div>
+                            <div className="flex flex-col gap-4">
+                                <div className="bg-gray-100 p-3 rounded-xl flex justify-between items-center">
+                                    <div className="flex gap-3 items-center">
+                                        <div className="w-8 h-8 rounded-md flex-center bg-green-200 text-2xl text-green-700"><FaRegFileLines /></div>
+                                        <div>
+                                            <div className="font-semibold">MRI_Brain_Scan.dcm</div>
+                                            <div className="text-gray-400 text-sm">Uploaded . 24.5 MB</div>
+                                        </div>
+                                    </div>
+                                    <div className="text-2xl text-green-700"><FiCheckCircle /></div>
+                                </div>
+
+                                <div className="bg-gray-100 p-3 rounded-xl flex justify-between items-center">
+                                    <div className="flex gap-3 items-center">
+                                        <div className="w-8 h-8 rounded-md flex-center bg-blue-200 text-2xl text-blue-700"><FaRegFileLines /></div>
+                                        <div>
+                                            <div className="font-semibold">MRI_Brain_Scan.dcm</div>
+                                            <div className="text-gray-400 text-sm">Uploaded . 24.5 MB</div>
+                                        </div>
+                                    </div>
+                                    <div className="text-2xl text-green-700"><FiCheckCircle /></div>
+                                </div>
+
+                                <div className="border-2 border-dashed border-blue-200 bg-gray-100 p-3 rounded-xl flex justify-between items-center">
+                                    <div className="flex gap-3 items-center">
+                                        <div className="w-8 h-8 rounded-md flex-center bg-blue-200 text-2xl text-blue-700"><MdOutlineFileUpload/></div>
+                                        <div>
+                                            <div className="font-semibold">Drop files or click to upload</div>
+                                            <div className="text-blue-700 text-sm">DICOM, PDF, JPEG, accept</div>
+                                        </div>
+                                    </div>
+                                    <div className="text-2xl text-green-700"><FiCheckCircle /></div>
+                                </div>
+                                
+                                <div className="border-t border-gray-300">
+                                    <div className="flex justify-between items-center mt-4">
+                                        <div className="font-semibold">Status</div>
+                                        <div className="bg-green-200 text-sm rounded-full px-2 py-1 font-medium text-green-700">Ready for Review</div>
+                                    </div>
+                                    <div className="flex-center bg-green-700 p-3 text-white rounded-xl mt-4">Submit for Expert Review</div>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </div>
