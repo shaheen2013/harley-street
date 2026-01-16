@@ -2,11 +2,13 @@
 
 @theme {
     --color-primary: #135269;
-    --color-green-700
-    : #00A98A;
+    --color-blue-100: #ECF5FF;
+    --color-gray-400: #859BA3;
+    --color-green-700: #00A98A;
     --gradient-title: linear-gradient(260.66deg, #31E4C4 0%, #2084D0 100%);
     --gradient-footer: linear-gradient(180deg, #135269 0%, #083444 100%);
     --breakpoint-2xl: 1280px;
+    --shadow-primary: 0px 0px 8px 0px rgba(168, 174, 183, 0.2);
 
 }
 
@@ -15,7 +17,6 @@
 @layer theme {
     .dark {
         @theme {
-
         }
     }
 }
@@ -59,10 +60,43 @@
 }
 
 body {
+    .clip-bottom-large-circle {
+        clip-path: ellipse(closest-side farthest-side at 50% -100%);
+        background: var(--color-blue-100);
+        width: 124%;
+        height: 150px;
+        position: absolute;
+        top: 0;
+        left: -12%;
+        z-index: 1;
+    }
 
-    .when-need-right-section{
-        border: 1px solid;
-        border-image-source: linear-gradient(260.66deg, #32FFDA 0%, #2084D0 100%);
-        box-shadow: 0px 10px 80px 0px #A8AEB733;
+    .clip-top-large-circle {
+        clip-path: ellipse(closest-side farthest-side at 50% -100%);
+        background: #fff;
+        width: 124%;
+        height: 150px;
+        position: absolute;
+        top: 0;
+        left: -12%;
+        z-index: 1;
+    }
+
+    .cs-border {
+        position: relative;
+
+        &:after {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            content: "";
+            right: -10px;
+            bottom: 0;
+            z-index: 9999;
+            border: 1px solid var(--color-green-700);
+            border-radius: 0 0 0 8px;
+            border-top: 0;
+            border-right: 0;
+        }
     }
 }

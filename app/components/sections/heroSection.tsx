@@ -20,12 +20,12 @@ interface SectionItem {
 }
 
 const initialSections: SectionItem[] = [
-    {title: 'Clarity', href: '/clarity', isActive: true},
-    {title: 'What You Receive', href: '/what-you-receive', isActive: false},
-    {title: 'How It Works', href: '/how-it-works', isActive: false},
-    {title: 'Specialist', href: '/specialist', isActive: false},
-    {title: 'Pricing', href: '/pricing', isActive: false},
-    {title: 'FAQs', href: '/fAQs', isActive: false},
+    {title: 'Clarity', href: 'clarity', isActive: true},
+    {title: 'What You Receive', href: 'what-you-receive', isActive: false},
+    {title: 'How It Works', href: 'how-it-works', isActive: false},
+    {title: 'Specialist', href: 'specialist', isActive: false},
+    {title: 'Pricing', href: 'pricing', isActive: false},
+    {title: 'FAQs', href: 'fAQs', isActive: false},
 ];
 
 const HeroSection = () => {
@@ -37,9 +37,7 @@ const HeroSection = () => {
         );
     };
     return (
-        <div className="bg-cover bg-bottom bg-no-repeat pt-20 pb-50 relative"
-             style={{ backgroundImage: `url(${heroBg.src})` }}
-        >
+        <div className="bg-blue-100 pt-20 pb-12 relative overflow-hidden ">
             <div className="absolute left-0 top-0">
                 <Image src={leftVisual} alt="leftVisul" width={776} height={484} className="w-full"/>
             </div>
@@ -116,7 +114,7 @@ const HeroSection = () => {
                         </div>
                         <div className="absolute top-0 left-0 z-20 w-full h-24 rounded-xl bg-[linear-gradient(90deg,#135269_-17.04%,rgba(19,82,105,0)_100%)]"></div>
                         <div className="absolute bottom-0 left-0 z-20 w-full h-24 rounded-xl bg-[linear-gradient(90deg,#135269_-17.04%,rgba(19,82,105,0)_100%)]"></div>
-                        <div className="space-y-4 max-h-[496px] overflow-hidden flex items-center flex-col justify-center bg-primary w-full relative z-10 rounded-xl">
+                        <div className="space-y-4 max-h-124 overflow-hidden flex items-center flex-col justify-center bg-primary w-full relative z-10 rounded-xl">
                             <Image src={heroReviewImage} width={414} height={274} alt="star Group Image"/>
                             <Image src={heroReviewImage} width={414} height={274} alt="star Group Image"/>
                             <Image src={heroReviewImage} width={414} height={274} alt="star Group Image"/>

@@ -4,7 +4,10 @@ import SpecialistSection from "@/components/sections/specialistSection";
 import RegulatedSection from "@/components/sections/regulatedSection";
 import WhenYouNeedSection from "@/components/sections/whenYouNeedSection";
 import YouWillReceivedSection from "@/components/sections/youWillReceivedSection";
-import HowItWork from "@/components/sections/howItWork";
+import HowItWorkSection from "@/components/sections/howItWorkSection";
+import OurTeamSection from "@/components/sections/ourTeamSection";
+import PricingSection from "@/components/sections/PricingSection";
+import FaqSection from "@/components/sections/faqSection";
 
 export const metadata: Metadata = {
     title: "Home",
@@ -30,7 +33,10 @@ export default function Home() {
             <RegulatedSection/>
             <WhenYouNeedSection/>
             <YouWillReceivedSection/>
-            <HowItWork/>
+            <HowItWorkSection/>
+            <OurTeamSection/>
+            <PricingSection/>
+            <FaqSection/>
             <SpecialistSection/>
         </>
     );

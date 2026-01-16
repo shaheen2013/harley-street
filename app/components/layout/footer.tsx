@@ -66,7 +66,7 @@ const Footer = () => {
                         </div>
                     </div>
 
-                    <div className="flex gap-16 ml-[11%] grow">
+                    <div className="flex gap-16 ml-[8.5%] grow">
                         <div>
                             <div className="font-semibold">Our clinic</div>
                             <div className="mt-5 flex flex-col gap-4">

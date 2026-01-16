@@ -3,7 +3,6 @@ import SectionTitle from "@/components/ui/sectionTitle";
 import Image from "next/image";
 import needManImage from "@/assets/images/need-man.png"
 import needManBgImage from "@/assets/images/need-man-bg.png"
-import {FaCheck} from "react-icons/fa";
 import docIcon from "@/assets/icons/doc.svg"
 import checkCircleIcon from "@/assets/icons/check-circle.svg"
 import avatarsIcon from "@/assets/icons/avatars.svg"
@@ -27,7 +26,7 @@ const serviceBenefits = [
 
 const WhenYouNeedSection = () => {
     return (
-        <div className="container mx-auto mb-20">
+        <div id="clarity" className="container mx-auto">
             <SectionTitle title={'Clarity Not Confusion'} subtitle={'When You Need'}/>
             <div className="flex gap-5 mt-9">
                 <div className="w-full max-w-130.5 rounded-xl gradient-border">
