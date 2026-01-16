@@ -41,7 +41,7 @@ const SpecialistSection = () => {
                 </div>
             </div>
 
-            <div className="container mx-auto relative">
+            <div className="container relative">
                 <div className="flex flex-col text-center mt-14">
                     <SectionTitle title={'Second Opinion on Your Scan?'} subtitle={'Ready for a Specialist'} subtitleSize={'text-[48px]'}/>
                     <p className="text-lg leading-[150%] mt-5 mb-11 max-w-164 mx-auto">Get an independent review from a

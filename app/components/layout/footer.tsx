@@ -13,7 +13,7 @@ import footer3 from "@/assets/images/footer-3.png"
 const Footer = () => {
     return (
         <div className="gradient-footer pt-16 pb-7.5 text-white">
-            <div className="container mx-auto">
+            <div className="container">
                 <div className="flex">
                     <div>
                         <Link href="">

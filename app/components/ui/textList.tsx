@@ -12,7 +12,7 @@ const TextList: React.FC<TextListProps> = ({title,subTitle}) => {
                 <FaCheck/>
             </div>
             <div>
-                <div className="text-lg font-medium">{title}</div>
+                <div className="text-base xl:text-lg font-medium">{title}</div>
                 {subTitle && <div className="font-medium leading-6.5 text-[#577B89]">{subTitle}</div>}
             </div>
         </div>
