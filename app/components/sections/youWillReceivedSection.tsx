@@ -1,4 +1,6 @@
-import React from 'react';
+'use client';
+
+import React, { useRef } from 'react';
 import SectionTitle from "@/components/ui/sectionTitle";
 import Image from "next/image";
 import arrowRightIcon from "@/assets/icons/right-arrow.svg";
@@ -40,6 +42,22 @@ const cardData = [
 ];
 
 const YouWillReceivedSection = () => {
+    const sliderRef = useRef<HTMLDivElement>(null);
+
+    const scrollLeft = () => {
+        if (sliderRef.current) {
+            const scrollAmount = sliderRef.current.offsetWidth > 768 ? 340 : 320;
+            sliderRef.current.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        }
+    };
+
+    const scrollRight = () => {
+        if (sliderRef.current) {
+            const scrollAmount = sliderRef.current.offsetWidth > 768 ? 340 : 320;
+            sliderRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        }
+    };
+
     return (
         <div id="what-you-receive" className="bg-blue-100  relative pt-24 xl:pt-50 pb-1 overflow-hidden">
             <div className="clip-top-large-circle top-0"></div>
@@ -51,12 +69,24 @@ const YouWillReceivedSection = () => {
                 <div className="flex justify-between items-center">
                     <SectionTitle title={'Second Opinion Request'} subtitle={'You Will Receive For Each '} />
                     <div className="hidden xl:flex gap-4">
-                        <div className="cursor-pointer w-12 h-12 rounded-full bg-primary text-white flex-center text-xl rotate-180"><FiChevronRight /></div>
-                        <div className="cursor-pointer w-12 h-12 rounded-full bg-gradient text-white flex-center text-xl"><FiChevronRight /></div>
+                        <button 
+                            onClick={scrollLeft} 
+                            className="cursor-pointer w-12 h-12 rounded-full bg-primary text-white flex-center text-xl rotate-180 hover:opacity-90 transition-opacity"
+                            aria-label="Previous"
+                        >
+                            <FiChevronRight />
+                        </button>
+                        <button 
+                            onClick={scrollRight} 
+                            className="cursor-pointer w-12 h-12 rounded-full bg-gradient text-white flex-center text-xl hover:opacity-90 transition-opacity"
+                            aria-label="Next"
+                        >
+                            <FiChevronRight />
+                        </button>
                     </div>
                 </div>
 
-                <div className="flex flex-nowrap gap-5 mt-8 xl:mt-14">
+                <div ref={sliderRef} className="flex flex-nowrap gap-5 mt-8 xl:mt-14 overflow-x-hidden scrollbar-hide scroll-smooth">
                     {cardData.map((card, idx) => (
                         <div
                             key={idx}
@@ -74,8 +104,20 @@ const YouWillReceivedSection = () => {
                 </div>
 
                 <div className="xl:hidden flex justify-center gap-4 mt-10">
-                    <div className="cursor-pointer w-12 h-12 rounded-full bg-primary text-white flex-center text-xl rotate-180"><FiChevronRight /></div>
-                    <div className="cursor-pointer w-12 h-12 rounded-full bg-gradient text-white flex-center text-xl"><FiChevronRight /></div>
+                    <button 
+                        onClick={scrollLeft} 
+                        className="cursor-pointer w-12 h-12 rounded-full bg-primary text-white flex-center text-xl rotate-180 hover:opacity-90 transition-opacity"
+                        aria-label="Previous"
+                    >
+                        <FiChevronRight />
+                    </button>
+                    <button 
+                        onClick={scrollRight} 
+                        className="cursor-pointer w-12 h-12 rounded-full bg-gradient text-white flex-center text-xl hover:opacity-90 transition-opacity"
+                        aria-label="Next"
+                    >
+                        <FiChevronRight />
+                    </button>
                 </div>
             </div>
         </div>
