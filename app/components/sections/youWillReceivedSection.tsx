@@ -1,3 +1,4 @@
+'use client'
 import React from 'react';
 import SectionTitle from "@/components/ui/sectionTitle";
 import Image from "next/image";
@@ -10,6 +11,7 @@ import healthIcon from "@/assets/icons/health.svg";
 import Link from "next/link";
 import {FiChevronRight} from "react-icons/fi";
 import bgVisual from "@/assets/images/center-visual.png";
+import {useScrollAnimation} from "@/hooks/useScrollAnimation";
 
 const cardData = [
     {
@@ -40,6 +42,8 @@ const cardData = [
 ];
 
 const YouWillReceivedSection = () => {
+    const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
+
     return (
         <div id="what-you-receive" className="bg-blue-100  relative pt-24 xl:pt-50 pb-1 overflow-hidden">
             <div className="clip-top-large-circle top-0"></div>
@@ -56,11 +60,14 @@ const YouWillReceivedSection = () => {
                     </div>
                 </div>
 
-                <div className="flex flex-nowrap gap-5 mt-8 xl:mt-14">
+                <div ref={ref} className="flex flex-nowrap gap-5 mt-8 xl:mt-14">
                     {cardData.map((card, idx) => (
                         <div
                             key={idx}
-                            className="w-76.25 shrink-0 rounded-xl shadow-primary bg-white px-5 pb-5 pt-10.5"
+                            className={`w-76.25 shrink-0 rounded-xl shadow-primary bg-white px-5 pb-5 pt-10.5 transition-all duration-700 ease-out ${
+                                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'
+                            }`}
+                            style={{ transitionDelay: `${idx * 150}ms` }}
                         >
                             <Image src={card.icon} alt="icon" width={52} height={52} className="object-contain max-h-12.5" />
                             <h4 className="text-xl font-semibold my-5 line-clamp-1">{card.title}</h4>

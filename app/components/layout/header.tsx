@@ -1,5 +1,5 @@
 'use client'
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Link from "next/link";
 import Button from "@/components/ui/button";
 import logo from "@/assets/images/logo.svg"
@@ -86,15 +86,34 @@ const menuList: MenuItem[] = [
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [activeSubMenu, setActiveSubMenu] = useState<number | null>(null);
+    const [scrolled, setScrolled] = useState(false);
 
     const toggleSubMenu = (index: number) => {
         setActiveSubMenu(activeSubMenu === index ? null : index);
     };
 
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 50);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
     return (
-        <div className="absolute top-0 w-full z-50">
-            <div className='flex items-center justify-between py-2 container relative z-50 bg-transparent'>
-                <Link href={'/'} className="w-22.5 h-11 xl:w-36.25 xl:h-18">
+        <div className={cn(
+            "fixed top-0 w-full z-50 transition-all duration-500 ease-in-out",
+            scrolled ? "bg-white shadow-md backdrop-blur-sm" : "bg-transparent"
+        )}>
+            <div className={cn(
+                'flex items-center justify-between container relative z-50 transition-all duration-500 ease-in-out',
+                scrolled ? "py-3" : "py-2"
+            )}>
+                <Link href={'/'} className={cn(
+                    "w-22.5 h-11 xl:w-36.25 xl:h-18 transition-transform duration-500 ease-out",
+                    scrolled ? "scale-90" : "scale-100"
+                )}>
                     <Image src={logo} width={145} height={72} alt="logo" className="object-contain"/>
                 </Link>
 
@@ -103,14 +122,17 @@ const Header = () => {
                     {menuList.map((item, index) => (
                         item.isSubMenu ? (
                             <div key={index} className="relative group">
-                                <button className="flex items-center gap-2 text-sm font-semibold focus:outline-none cursor-pointer">
+                                <button className={cn(
+                                    "flex items-center gap-2 text-sm font-semibold focus:outline-none cursor-pointer transition-all duration-300 ease-out",
+                                    "hover:scale-110 hover:text-primary"
+                                )}>
                                     <span>{item.title}</span>
                                     <FaChevronDown className="text-xs transition-transform duration-200 group-hover:rotate-180" />
                                 </button>
 
-                                <ul className="absolute left-0 w-48 bg-white shadow-lg rounded border border-primary z-20 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transform scale-95 group-hover:scale-100 transition-all duration-150 overflow-hidden">
+                                <ul className="absolute left-0 w-48 bg-white shadow-lg rounded border border-primary z-20 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transform scale-95 translate-y-2 group-hover:scale-100 group-hover:translate-y-0 transition-all duration-300 overflow-hidden">
                                     {item.subMenu?.map((sub, sidx) => (
-                                        <li key={sidx} className="px-4 py-2 hover:bg-gray-50">
+                                        <li key={sidx} className="px-4 py-2 hover:bg-gray-50 transition-colors duration-200">
                                             <Link href={sub.href} className="block text-sm font-semibold ">
                                                 {sub.title}
                                             </Link>
@@ -119,7 +141,10 @@ const Header = () => {
                                 </ul>
                             </div>
                         ) : (
-                            <Link key={index} href={item.href} className="text-sm font-semibold ">
+                            <Link key={index} href={item.href} className={cn(
+                                "text-sm font-semibold transition-all duration-300 ease-out",
+                                "hover:scale-110 hover:text-primary"
+                            )}>
                                 {item.title}
                             </Link>
                         )
