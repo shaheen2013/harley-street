@@ -43,7 +43,7 @@ const YouWillReceivedSection = () => {
     return (
         <div id="what-you-receive" className="bg-blue-100  relative pt-24 xl:pt-50 pb-1 overflow-hidden">
             <div className="clip-top-large-circle top-0"></div>
-            <div className="hidden xl:absolute left-1/2  top-16 -translate-x-1/2 ">
+            <div className="hidden xl:block absolute left-1/2  top-16 -translate-x-1/2 ">
                 <Image src={bgVisual} alt='bgVisual' width={681} height={425}/>
             </div>
 

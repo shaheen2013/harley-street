@@ -105,7 +105,7 @@ const FaqSection: React.FC = () => {
                 <SectionTitle title={"Frequently Asked Questions"} subtitle={"FAQ’s"} />
             </div>
 
-            <div className="grid grid-cols-2 gap-5">
+            <div className="grid grid-cols-1 xl:grid-cols-2 gap-5">
                 <div className="flex flex-col gap-3">
                     {left.map((it) => (
                         <AccordionItem key={it.id} item={it} isOpen={openId === it.id} onToggle={toggle} />

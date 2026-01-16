@@ -55,39 +55,43 @@ const teamMembers: TeamMember[] = [
 const OurTeamSection: React.FC = () => {
     return (
         <div id="specialist"
-            className="bg-blue-100 pt-50 relative overflow-hidden">
+             className="bg-blue-100 pt-24 xl:pt-50 relative overflow-hidden">
             <div className="clip-top-large-circle top-0"></div>
-            <div className="absolute left-1/2  top-16 -translate-x-1/2 ">
+            <div className="hidden xl:block absolute left-1/2  top-16 -translate-x-1/2 ">
                 <Image src={bgVisual} alt='bgVisual' width={681} height={425}/>
             </div>
 
             <div className="container relative">
                 <div className="flex justify-between items-end">
-                    <SectionTitle title={'Meet Your Specialists'} subtitle={'Our team'} />
-                    <Button title={'Show more doctors'} />
+                    <SectionTitle title={'Meet Your Specialists'} subtitle={'Our team'}/>
+                    <div className="hidden xl:flex"><Button title={'Show more doctors'}/></div>
                 </div>
 
-                <div className="grid grid-cols-4 gap-5 mt-12 relative overflow-hidden">
-                    <div className="absolute z-10 top-0 -left-[6%] w-77.5 h-full bg-[linear-gradient(90deg,#EDF7FA_-17.04%,rgba(237,247,250,0)_100%)]"></div>
-                    <div className="absolute z-10 top-0 -right-[6%] w-77.5 h-full bg-[linear-gradient(90deg,#EDF7FA_-17.04%,rgba(237,247,250,0)_100%)] rotate-180"></div>
+                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5 mt-12 relative overflow-hidden">
+                    <div className="hidden xl:block absolute z-10 top-0 -left-[6%] w-77.5 h-full bg-[linear-gradient(90deg,#EDF7FA_-17.04%,rgba(237,247,250,0)_100%)]"></div>
+                    <div className="hidden xl:block absolute z-10 top-0 -right-[6%] w-77.5 h-full bg-[linear-gradient(90deg,#EDF7FA_-17.04%,rgba(237,247,250,0)_100%)] rotate-180"></div>
                     {teamMembers.map(member => (
-                        <div key={member.id} className="bg-white shadow-primary rounded-xl overflow-hidden relative pt-1">
+                        <div key={member.id}
+                             className="bg-white shadow-primary rounded-xl overflow-hidden relative pt-1">
                             <div className="bg-gradient absolute top-0 left-0 w-full h-10"></div>
                             <Image
                                 src={member.image}
                                 alt={member.imageAlt ?? member.name}
-                                width={305}
+                                width={705}
                                 height={245}
                                 className="relative object-cover rounded-xl overflow-hidden"
                             />
-                            <div className="px-5 pt-5 pb-10">
-                                <h5 className="text-xl font-semibold leading-7">{member.name}</h5>
-                                <h6 className="leading-5.5 text-gray-400 font-normal mt-2 mb-4">{member.qualification}</h6>
+                            <div className="px-4 xl:px-5 pt-3 xl:pt-5 pb-7 xl:pb-10">
+                                <h5 className="text-base xl:text-xl font-semibold leading-7">{member.name}</h5>
+                                <h6 className="leading-5.5 text-gray-400 font-normal mt-1 xl:mt-2 mb-2 xl:mb-4">{member.qualification}</h6>
                                 <p className="leading-5.5 font-medium">{member.role}</p>
                             </div>
                         </div>
                     ))}
                 </div>
+
+                <div className="xl:hidden flex justify-center mt-10"><Button title={'Show more doctors'}/></div>
+
             </div>
         </div>
     );

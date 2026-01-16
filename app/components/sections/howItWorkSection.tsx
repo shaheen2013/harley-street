@@ -27,13 +27,8 @@ const demoData = [
 
 const HowItWorkSection = () => {
     return (
-        <div id="how-it-works" className="relative overflow-hidden pt-50">
+        <div id="how-it-works" className="relative overflow-hidden pt-24 xl:pt-50">
             <div className="clip-bottom-large-circle"></div>
-
-            {/*<div className="absolute left-1/2  top-0 -translate-x-1/2 ">
-                <Image src={bgVisual} alt='bgVisual' width={681} height={425}/>
-            </div>*/}
-
             <div className="container">
                 <SectionTitle title={'How It Works'} subtitle={'Step by Step'}/>
                 <div className="grid grid-cols-3 gap-4 mt-14">
