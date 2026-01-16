@@ -78,7 +78,7 @@ const HowItWorkSection = () => {
                         <p className="mt-5.5 font-medium leading-5.5">
                             Choose how you&#39;d like to share your scans with us. Upload directly through our GDPR-compliant portal, or authorize us to retrieve your images from the NHS Image Exchange Portal (IEP). Either way, your data is encrypted and handled with the highest security standards.
                         </p>
-                        <Link href="" className="mt-3.5 mb-7 flex text-gradient font-medium leading-5.5">Secure Link</Link>
+                        <Link href="" className="mt-3.5 mb-7 flex text-gradient font-semibold leading-5.5">Secure Link</Link>
                         <div className="flex flex-col gap-5 mb-9">
                             { demoData.map((item, idx) => (
                                 <TextList key={idx} title={item.title} subTitle={item.subTitle} />

@@ -60,7 +60,7 @@ const YouWillReceivedSection = () => {
                     {cardData.map((card, idx) => (
                         <div
                             key={idx}
-                            className="w-76.25 shrink-0 rounded-xl shadow-primary bg-white px-5 pb-5 pt-10.5"
+                            className="w-76.25 shrink-0 rounded-xl shadow-primary bg-white px-5 pb-5 pt-10.5 hover:shadow-xl transition-shadow duration-300"
                         >
                             <Image src={card.icon} alt="icon" width={52} height={52} className="object-contain max-h-12.5" />
                             <h4 className="text-xl font-semibold my-5 line-clamp-1">{card.title}</h4>
