@@ -27,6 +27,7 @@ const initialSections: SectionItem[] = [
     {title: 'FAQs', href: 'fAQs', isActive: false},
 ];
 
+
 const HeroSection = () => {
     const [sectionList, setSectionList] = useState<SectionItem[]>(initialSections);
 
@@ -34,6 +35,13 @@ const HeroSection = () => {
         setSectionList(prev =>
             prev.map(item => ({...item, isActive: item.href === href}))
         );
+        const element = document.getElementById(href);
+        if (!element) return;
+
+        element.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+        });
     };
     return (
         <div className="bg-blue-100 pt-20 pb-12 relative overflow-hidden ">
@@ -47,14 +55,13 @@ const HeroSection = () => {
                 <div
                     className="w-fit mx-auto flex-center gap-7.5 bg-white rounded-[50px] py-2 px-4 mb-16">
                     {sectionList.map((item, index) => (
-                        <Link
+                        <div
                             key={index}
-                            href={`#${item.href}`}
                             onClick={() => handleClick(item.href)}
-                            className={`text-xs xl:text-sm font-semibold text-nowrap ${item.isActive ? 'text-gradient' : ''}`}
+                            className={`cursor-pointer text-xs xl:text-sm font-semibold text-nowrap ${item.isActive ? 'text-gradient' : ''}`}
                         >
                             {item.title}
-                        </Link>
+                        </div>
                     ))}
                 </div>
 

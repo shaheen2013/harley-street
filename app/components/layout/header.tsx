@@ -78,7 +78,7 @@ const Header = () => {
     return (
         <div className="absolute top-0 w-full z-50">
             <div className='flex items-center justify-between py-2 container'>
-                <Link href={'/'} className="w-22.5 h-11">
+                <Link href={'/'} className="w-22.5 h-11 xl:w-36.25 xl:h-18">
                     <Image src={logo} width={145} height={72} alt="logo" className="object-contain"/>
                 </Link>
 

@@ -18,7 +18,7 @@ const SpecialistSection = () => {
                 <Image src={bgVisual} alt='bgVisual' width={681} height={425}/>
             </div>
 
-            <div className="hidden absolute left-0 top-0">
+            <div className="hidden xl:block absolute left-0 top-0">
                 <div className="flex flex-col gap-6">
                     <Image src={scan1Image} alt="scan Image" width={180} height={280}
                            className="w-45 h-70 object-cover"/>
@@ -29,7 +29,7 @@ const SpecialistSection = () => {
                 </div>
             </div>
 
-            <div className="hidden absolute right-0 top-0">
+            <div className="hidden xl:block absolute right-0 top-0">
                 <div className="flex flex-col gap-6">
                     <Image src={scan4Image} alt="scan Image" width={180} height={280}
                            className="w-45 h-70 object-cover"/>
