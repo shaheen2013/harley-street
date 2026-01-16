@@ -1,4 +1,3 @@
-'use client'
 'use client';
 
 import React, { useRef, useState } from 'react';
@@ -13,7 +12,6 @@ import healthIcon from "@/assets/icons/health.svg";
 import Link from "next/link";
 import {FiChevronRight} from "react-icons/fi";
 import bgVisual from "@/assets/images/center-visual.png";
-import {useScrollAnimation} from "@/hooks/useScrollAnimation";
 
 const cardData = [
     {
@@ -44,10 +42,44 @@ const cardData = [
 ];
 
 const YouWillReceivedSection = () => {
-    const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
-
     const sliderRef = useRef<HTMLDivElement>(null);
     const [isScrolling, setIsScrolling] = useState(false);
+    // Show first 2 cards immediately, rest will animate in
+    const [visibleCards, setVisibleCards] = useState<Set<number>>(new Set([0, 1]));
+    
+    // Use Intersection Observer for scroll animation on individual cards
+    React.useEffect(() => {
+        const cards = sliderRef.current?.querySelectorAll('.card-item');
+        if (!cards || cards.length === 0) return;
+        
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        const index = parseInt(entry.target.getAttribute('data-index') || '0');
+                        setVisibleCards(prev => new Set([...prev, index]));
+                    }
+                });
+            },
+            { threshold: 0.1, rootMargin: '0px 0px -100px 0px' }
+        );
+        
+        // Check if cards are already visible on mount
+        cards.forEach((card, index) => {
+            const rect = card.getBoundingClientRect();
+            const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+            if (isVisible) {
+                setVisibleCards(prev => new Set([...prev, index]));
+            }
+            observer.observe(card);
+        });
+        
+        return () => {
+            cards.forEach((card) => {
+                observer.unobserve(card);
+            });
+        };
+    }, []);
 
     const smoothScroll = (target: HTMLElement, distance: number, duration: number = 600) => {
         const start = target.scrollLeft;
@@ -120,12 +152,17 @@ const YouWillReceivedSection = () => {
                     </div>
                 </div>
 
-                <div ref={ref} ref={sliderRef} className="flex flex-nowrap gap-5 mt-8 xl:mt-14 overflow-x-hidden scrollbar-hide">
+                <div 
+                    ref={sliderRef}
+                    className="flex flex-nowrap gap-5 mt-8 xl:mt-14 overflow-x-auto scrollbar-hide scroll-smooth"
+                    style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+                >
                     {cardData.map((card, idx) => (
                         <div
                             key={idx}
-                            className={`w-76.25 shrink-0 rounded-xl shadow-primary bg-white px-5 pb-5 pt-10.5 transition-transform duration-300 hover:scale-105 transition-all duration-700 ease-out ${
-                                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'
+                            data-index={idx}
+                            className={`card-item w-76.25 shrink-0 rounded-xl shadow-primary bg-white px-5 pb-5 pt-10.5 transition-all duration-700 ease-out hover:scale-105 ${
+                                visibleCards.has(idx) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'
                             }`}
                             style={{ transitionDelay: `${idx * 150}ms` }}
                         >
