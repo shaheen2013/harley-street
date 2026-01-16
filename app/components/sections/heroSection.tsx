@@ -109,7 +109,7 @@ const HeroSection = () => {
                         <div className="absolute -top-9 left-auto z-10">
                             <Image src={heroReviewTopImage} width={437} height={265} alt="google Image" className="w-109.25 h-66.25"/>
                         </div>
-                        <div className="absolute -bottom-16 xl:-bottom-19.5 left-auto z-10">
+                        <div className="absolute -bottom-15.75 xl:-bottom-19.5 left-auto z-10">
                             <Image src={heroReviewBackImage} width={437} height={265} alt="google Image" className="w-109.25 h-66.25"/>
                         </div>
                         <div className="absolute -top-6 xl:-top-11 left-5 z-30">

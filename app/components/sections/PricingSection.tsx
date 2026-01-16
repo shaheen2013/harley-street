@@ -2,11 +2,16 @@ import React from 'react';
 import SectionTitle from "@/components/ui/sectionTitle";
 import TextList from "@/components/ui/textList";
 import Button from "@/components/ui/button";
+import Image from "next/image";
+import bgBottomVisual from "@/assets/images/bottom-visual-new.png";
 
 const PricingSection = () => {
     return (
         <div id="pricing" className="relative overflow-hidden pb-4 xl:pb-20">
             <div className="clip-bottom-large-circle"></div>
+            <div className="hidden xl:block absolute left-1/2 -top-[30%] -translate-x-1/2 z-10 -rotate-10">
+                <Image src={bgBottomVisual} alt='bgVisual' width={681} height={425}/>
+            </div>
             <div className="container pt-24 xl:pt-62.5">
                 <div className="flex-center mb-12">
                     <SectionTitle title={'No Hidden Fees'} subtitle={'Transparent Pricing'}/>

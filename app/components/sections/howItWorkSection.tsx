@@ -9,6 +9,10 @@ import Button from "@/components/ui/button";
 import {GoDatabase} from "react-icons/go";
 import {FiCheckCircle} from "react-icons/fi";
 import {FaRegFileLines} from "react-icons/fa6";
+import bgBottomVisual from "@/assets/images/bottom-visual-new.png";
+import Image from "next/image";
+
+
 
 const demoData = [
     {
@@ -29,10 +33,14 @@ const HowItWorkSection = () => {
     return (
         <div id="how-it-works" className="relative overflow-hidden pt-24 xl:pt-50">
             <div className="clip-bottom-large-circle"></div>
+            <div className="hidden xl:block absolute left-1/2 -top-[30%] -translate-x-1/2 z-10 -rotate-20">
+                <Image src={bgBottomVisual} alt='bgVisual' width={681} height={425}/>
+            </div>
+
             <div className="container">
                 <SectionTitle title={'How It Works'} subtitle={'Step by Step'}/>
                 <div className="grid grid-cols-3 gap-4 mt-14">
-                    <div className="cs-border flex gap-9 rounded-xl bg-[#EDF7FA] p-8.5 border border-[#31E4C4] border-b-0 rounded-bl-none rounded-br-none relative">
+                    <div className="min-w-76.25 cs-border flex gap-9 rounded-xl bg-[#EDF7FA] p-8.5 border border-[#31E4C4] border-b-0 rounded-bl-none rounded-br-none relative">
                         <div className="shrink-0 w-15 h-15 rounded-full text-white flex-center bg-green-700 p-3 text-3xl">
                             <MdOutlineFileUpload />
                         </div>
@@ -43,7 +51,7 @@ const HowItWorkSection = () => {
                         <div className="absolute w-[102%] h-1.5 bg-[#EDF7FA] -bottom-1 left-0"></div>
                     </div>
 
-                    <div className="flex gap-9 rounded-xl bg-white p-8.5 shadow-primary mb-5">
+                    <div className="min-w-76.25 flex gap-9 rounded-xl bg-white p-8.5 shadow-primary mb-5">
                         <div className="shrink-0 w-15 h-15 rounded-full text-white flex-center bg-green-700 p-3 text-3xl">
                             <AiOutlineFileText />
                         </div>
@@ -53,7 +61,7 @@ const HowItWorkSection = () => {
                         </div>
                     </div>
 
-                    <div className="flex gap-9 rounded-xl bg-white p-8.5 shadow-primary mb-5">
+                    <div className="min-w-76.25 flex gap-9 rounded-xl bg-white p-8.5 shadow-primary mb-5">
                         <div className="shrink-0 w-15 h-15 rounded-full text-white flex-center bg-green-700 p-3 text-3xl">
                             <LuFileSearch />
                         </div>
