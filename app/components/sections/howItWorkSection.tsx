@@ -41,7 +41,6 @@ const HowItWorkSection = () => {
     const [activeTab, setActiveTab] = useState(1);
     
     const handleTabClick = (tabId: number) => {
-        console.log('Tab clicked:', tabId);
         setActiveTab(tabId);
     };
 
@@ -88,39 +87,6 @@ const HowItWorkSection = () => {
                             </div>
                         );
                     })}
-                </div>
-                <div className="flex gap-4 mt-6 xl:mt-14">
-                    <div className="min-w-76.25 w-1/3 flex flex-col xl:flex-row gap-3 xl:gap-9 rounded-xl bg-[#EDF7FA] p-4 xl:p-8.5 border border-[#31E4C4] border-b-0 rounded-bl-none rounded-br-none relative z-10">
-                        <div className="shrink-0 w-15 h-15 rounded-full text-white flex-center bg-green-700 p-3 text-3xl">
-                            <MdOutlineFileUpload />
-                        </div>
-                        <div>
-                            <div className="text-xl font-semibold line-clamp-1">Upload Your Scans</div>
-                            <p className="hidden xl:block mt-5 font-medium line-clamp-3 leading-4.5">Securely upload your medical imaging files or let us retrieve them from the NHS IEP</p>
-                        </div>
-                        <div className="absolute w-[104%] h-10 bg-[#EDF7FA] -bottom-1 left-0"></div>
-                        <div className="absolute w-4 sm:w-10 h-10 bg-[white] border-l border-b border-[#31E4C4] -bottom-px -right-4 sm:-right-10 rounded-bl-xl"></div>
-                    </div>
-
-                    <div className="min-w-76.25 w-1/3 flex gap-9 rounded-xl bg-white p-8.5 shadow-primary mb-5 z-10">
-                        <div className="shrink-0 w-15 h-15 rounded-full text-white flex-center bg-green-700 p-3 text-3xl">
-                            <AiOutlineFileText />
-                        </div>
-                        <div>
-                            <div className="text-xl font-semibold line-clamp-1">Share Your Concerns</div>
-                            <p className="hidden xl:block mt-5 font-medium line-clamp-3 leading-4.5">Tell us about your symptoms and questions so we can provide targeted insights</p>
-                        </div>
-                    </div>
-
-                    <div className="min-w-76.25 w-1/3 flex gap-9 rounded-xl bg-white p-8.5 shadow-primary mb-5 z-10">
-                        <div className="shrink-0 w-15 h-15 rounded-full text-white flex-center bg-green-700 p-3 text-3xl">
-                            <LuFileSearch />
-                        </div>
-                        <div>
-                            <div className="text-xl font-semibold line-clamp-1">Expert Review</div>
-                            <p className="hidden xl:block mt-5 font-medium line-clamp-3 leading-4.5">Consultant radiologist performs comprehensive analysis within 24-48 hours</p>
-                        </div>
-                    </div>
                 </div>
                 <div className="flex flex-col xl:flex-row items-center justify-between gap-5 xl:gap-10 p-4 xl:p-6 xl:p-12 border bg-[#EDF7FA] border-[#31E4C4] rounded-xl rounded-tl-none -mt-px">
                     {activeTab === 1 && (
