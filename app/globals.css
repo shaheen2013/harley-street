@@ -23,7 +23,7 @@
 
 @layer base {
     .text-h1 {
-        @apply font-semibold text-[56px] leading-15 ;
+        @apply font-semibold text-[56px] leading-15;
     }
 
     .text-gradient {
