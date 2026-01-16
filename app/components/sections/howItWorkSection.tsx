@@ -1,6 +1,5 @@
 'use client';
 
-'use client'
 import React, { useState } from 'react';
 import SectionTitle from "@/components/ui/sectionTitle";
 import {AiOutlineFileText} from "react-icons/ai";
@@ -45,9 +44,6 @@ const HowItWorkSection = () => {
         console.log('Tab clicked:', tabId);
         setActiveTab(tabId);
     };
-    
-    const { ref: stepsRef, isVisible: stepsVisible } = useScrollAnimation({ threshold: 0.2 });
-    const { ref: detailsRef, isVisible: detailsVisible } = useScrollAnimation({ threshold: 0.2 });
 
     return (
         <div id="how-it-works" className="relative overflow-hidden pt-24 xl:pt-50">
@@ -92,11 +88,8 @@ const HowItWorkSection = () => {
                             </div>
                         );
                     })}
-                <div ref={stepsRef} className="flex gap-4 mt-6 xl:mt-14">
-                    <div className={`min-w-76.25 w-1/3 flex flex-col xl:flex-row gap-3 xl:gap-9 rounded-xl bg-[#EDF7FA] p-4 xl:p-8.5 border border-[#31E4C4] border-b-0 rounded-bl-none rounded-br-none relative z-10 transition-all duration-700 ease-out ${
-                        stepsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                    }`}
-                    style={{ transitionDelay: '0ms' }}>
+                <div className="flex gap-4 mt-6 xl:mt-14">
+                    <div className="min-w-76.25 w-1/3 flex flex-col xl:flex-row gap-3 xl:gap-9 rounded-xl bg-[#EDF7FA] p-4 xl:p-8.5 border border-[#31E4C4] border-b-0 rounded-bl-none rounded-br-none relative z-10">
                         <div className="shrink-0 w-15 h-15 rounded-full text-white flex-center bg-green-700 p-3 text-3xl">
                             <MdOutlineFileUpload />
                         </div>
@@ -108,10 +101,7 @@ const HowItWorkSection = () => {
                         <div className="absolute w-4 sm:w-10 h-10 bg-[white] border-l border-b border-[#31E4C4] -bottom-px -right-4 sm:-right-10 rounded-bl-xl"></div>
                     </div>
 
-                    <div className={`min-w-76.25 w-1/3 flex gap-9 rounded-xl bg-white p-8.5 shadow-primary mb-5 z-10 transition-all duration-700 ease-out ${
-                        stepsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                    }`}
-                    style={{ transitionDelay: '200ms' }}>
+                    <div className="min-w-76.25 w-1/3 flex gap-9 rounded-xl bg-white p-8.5 shadow-primary mb-5 z-10">
                         <div className="shrink-0 w-15 h-15 rounded-full text-white flex-center bg-green-700 p-3 text-3xl">
                             <AiOutlineFileText />
                         </div>
@@ -121,10 +111,7 @@ const HowItWorkSection = () => {
                         </div>
                     </div>
 
-                    <div className={`min-w-76.25 w-1/3 flex gap-9 rounded-xl bg-white p-8.5 shadow-primary mb-5 z-10 transition-all duration-700 ease-out ${
-                        stepsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                    }`}
-                    style={{ transitionDelay: '400ms' }}>
+                    <div className="min-w-76.25 w-1/3 flex gap-9 rounded-xl bg-white p-8.5 shadow-primary mb-5 z-10">
                         <div className="shrink-0 w-15 h-15 rounded-full text-white flex-center bg-green-700 p-3 text-3xl">
                             <LuFileSearch />
                         </div>
@@ -134,9 +121,7 @@ const HowItWorkSection = () => {
                         </div>
                     </div>
                 </div>
-                <div ref={detailsRef} className={`flex flex-col xl:flex-row flex-col xl:flex-row items-center justify-between gap-5 xl:gap-10 p-4 xl:p-6 xl:p-12 border bg-[#EDF7FA] border-[#31E4C4] rounded-xl rounded-tl-none -mt-px transition-all duration-1000 ease-out ${
-                    detailsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'
-                }`}>
+                <div className="flex flex-col xl:flex-row items-center justify-between gap-5 xl:gap-10 p-4 xl:p-6 xl:p-12 border bg-[#EDF7FA] border-[#31E4C4] rounded-xl rounded-tl-none -mt-px">
                     {activeTab === 1 && (
                         <>
                             <div className="max-w-137 w-full">
