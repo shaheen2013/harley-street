@@ -41,7 +41,7 @@ const cardData = [
 
 const YouWillReceivedSection = () => {
     return (
-        <div id="what-you-receive" className="bg-blue-100  relative pt-50 pb-10 overflow-hidden">
+        <div id="what-you-receive" className="bg-blue-100  relative pt-50 pb-1 overflow-hidden">
             <div className="clip-top-large-circle top-0"></div>
             <div className="absolute left-1/2  top-16 -translate-x-1/2 ">
                 <Image src={bgVisual} alt='bgVisual' width={681} height={425}/>
