@@ -26,7 +26,7 @@ const serviceBenefits = [
 
 const WhenYouNeedSection = () => {
     return (
-        <div id="clarity" className="container mx-auto mb-20">
+        <div id="clarity" className="container mx-auto">
             <SectionTitle title={'Clarity Not Confusion'} subtitle={'When You Need'}/>
             <div className="flex gap-5 mt-9">
                 <div className="w-full max-w-130.5 rounded-xl gradient-border">

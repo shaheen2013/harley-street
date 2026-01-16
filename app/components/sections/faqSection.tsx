@@ -100,7 +100,7 @@ const FaqSection: React.FC = () => {
     const right = ITEMS.filter((_, i) => i % 2 === 1);
 
     return (
-        <div id="fAQs" className="container mx-auto mt-35 mb-10">
+        <div id="fAQs" className="container mx-auto mt-10 mb-10">
             <div className="flex-center text-center mb-14">
                 <SectionTitle title={"Frequently Asked Questions"} subtitle={"FAQ’s"} />
             </div>

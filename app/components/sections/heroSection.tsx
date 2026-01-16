@@ -37,9 +37,7 @@ const HeroSection = () => {
         );
     };
     return (
-        <div className="bg-cover bg-bottom bg-no-repeat pt-20 pb-50 relative"
-             style={{ backgroundImage: `url(${heroBg.src})` }}
-        >
+        <div className="bg-blue-100 pt-20 pb-12 relative overflow-hidden ">
             <div className="absolute left-0 top-0">
                 <Image src={leftVisual} alt="leftVisul" width={776} height={484} className="w-full"/>
             </div>

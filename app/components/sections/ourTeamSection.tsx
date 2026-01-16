@@ -54,9 +54,8 @@ const teamMembers: TeamMember[] = [
 const OurTeamSection: React.FC = () => {
     return (
         <div id="specialist"
-            className="bg-size-[100%_100%] bg-top bg-no-repeat  pt-42.5 pb-24 relative mb-20 overflow-hidden"
-            style={{ backgroundImage: `url(${bgImage.src})` }}
-        >
+            className="bg-blue-100 pt-50 relative overflow-hidden">
+            <div className="clip-top-large-circle top-0"></div>
             <div className="container mx-auto">
                 <div className="flex justify-between items-end">
                     <SectionTitle title={'Meet Your Specialists'} subtitle={'Our team'} />
