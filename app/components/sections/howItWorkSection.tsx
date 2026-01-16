@@ -88,6 +88,7 @@ const HowItWorkSection = () => {
                             </div>
                         );
                     })}
+                </div>
                 <div className="flex gap-4 mt-6 xl:mt-14">
                     <div className="min-w-76.25 w-1/3 flex flex-col xl:flex-row gap-3 xl:gap-9 rounded-xl bg-[#EDF7FA] p-4 xl:p-8.5 border border-[#31E4C4] border-b-0 rounded-bl-none rounded-br-none relative z-10">
                         <div className="shrink-0 w-15 h-15 rounded-full text-white flex-center bg-green-700 p-3 text-3xl">
