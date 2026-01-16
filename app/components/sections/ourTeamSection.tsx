@@ -1,3 +1,4 @@
+'use client'
 import React from 'react';
 import bgImage from "@/assets/images/bg-carve.png";
 import SectionTitle from "@/components/ui/sectionTitle";
@@ -7,6 +8,7 @@ import team1Image from "@/assets/images/team-1.png";
 import team2Image from "@/assets/images/team-2.png";
 import team3Image from "@/assets/images/team-3.png";
 import bgVisual from "@/assets/images/center-visual.png";
+import {useScrollAnimation} from "@/hooks/useScrollAnimation";
 
 interface TeamMember {
     id: number;
@@ -53,6 +55,8 @@ const teamMembers: TeamMember[] = [
 ];
 
 const OurTeamSection: React.FC = () => {
+    const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
+
     return (
         <div id="specialist"
              className="bg-blue-100 pt-24 xl:pt-50 relative overflow-hidden">
@@ -67,12 +71,15 @@ const OurTeamSection: React.FC = () => {
                     <div className="hidden xl:flex"><Button title={'Show more doctors'}/></div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5 mt-12 relative overflow-hidden">
+                <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5 mt-12 relative overflow-hidden">
                     <div className="hidden xl:block absolute z-10 top-0 -left-[6%] w-77.5 h-full bg-[linear-gradient(90deg,#EDF7FA_-17.04%,rgba(237,247,250,0)_100%)]"></div>
                     <div className="hidden xl:block absolute z-10 top-0 -right-[6%] w-77.5 h-full bg-[linear-gradient(90deg,#EDF7FA_-17.04%,rgba(237,247,250,0)_100%)] rotate-180"></div>
-                    {teamMembers.map(member => (
+                    {teamMembers.map((member, idx) => (
                         <div key={member.id}
-                             className="bg-white shadow-primary rounded-xl overflow-hidden relative pt-1">
+                             className={`bg-white shadow-primary rounded-xl overflow-hidden relative pt-1 transition-all duration-700 ease-out ${
+                                 isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-10 scale-95'
+                             }`}
+                             style={{ transitionDelay: `${idx * 100}ms` }}>
                             <div className="bg-gradient absolute top-0 left-0 w-full h-10"></div>
                             <Image
                                 src={member.image}

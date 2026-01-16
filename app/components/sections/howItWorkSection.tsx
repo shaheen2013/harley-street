@@ -1,5 +1,6 @@
 'use client';
 
+'use client'
 import React, { useState } from 'react';
 import SectionTitle from "@/components/ui/sectionTitle";
 import {AiOutlineFileText} from "react-icons/ai";
@@ -45,6 +46,9 @@ const HowItWorkSection = () => {
         setActiveTab(tabId);
     };
     
+    const { ref: stepsRef, isVisible: stepsVisible } = useScrollAnimation({ threshold: 0.2 });
+    const { ref: detailsRef, isVisible: detailsVisible } = useScrollAnimation({ threshold: 0.2 });
+
     return (
         <div id="how-it-works" className="relative overflow-hidden pt-24 xl:pt-50">
             <div className="clip-bottom-large-circle"></div>
@@ -88,8 +92,51 @@ const HowItWorkSection = () => {
                             </div>
                         );
                     })}
+                <div ref={stepsRef} className="flex gap-4 mt-6 xl:mt-14">
+                    <div className={`min-w-76.25 w-1/3 flex flex-col xl:flex-row gap-3 xl:gap-9 rounded-xl bg-[#EDF7FA] p-4 xl:p-8.5 border border-[#31E4C4] border-b-0 rounded-bl-none rounded-br-none relative z-10 transition-all duration-700 ease-out ${
+                        stepsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                    }`}
+                    style={{ transitionDelay: '0ms' }}>
+                        <div className="shrink-0 w-15 h-15 rounded-full text-white flex-center bg-green-700 p-3 text-3xl">
+                            <MdOutlineFileUpload />
+                        </div>
+                        <div>
+                            <div className="text-xl font-semibold line-clamp-1">Upload Your Scans</div>
+                            <p className="hidden xl:block mt-5 font-medium line-clamp-3 leading-4.5">Securely upload your medical imaging files or let us retrieve them from the NHS IEP</p>
+                        </div>
+                        <div className="absolute w-[104%] h-10 bg-[#EDF7FA] -bottom-1 left-0"></div>
+                        <div className="absolute w-4 sm:w-10 h-10 bg-[white] border-l border-b border-[#31E4C4] -bottom-px -right-4 sm:-right-10 rounded-bl-xl"></div>
+                    </div>
+
+                    <div className={`min-w-76.25 w-1/3 flex gap-9 rounded-xl bg-white p-8.5 shadow-primary mb-5 z-10 transition-all duration-700 ease-out ${
+                        stepsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                    }`}
+                    style={{ transitionDelay: '200ms' }}>
+                        <div className="shrink-0 w-15 h-15 rounded-full text-white flex-center bg-green-700 p-3 text-3xl">
+                            <AiOutlineFileText />
+                        </div>
+                        <div>
+                            <div className="text-xl font-semibold line-clamp-1">Share Your Concerns</div>
+                            <p className="hidden xl:block mt-5 font-medium line-clamp-3 leading-4.5">Tell us about your symptoms and questions so we can provide targeted insights</p>
+                        </div>
+                    </div>
+
+                    <div className={`min-w-76.25 w-1/3 flex gap-9 rounded-xl bg-white p-8.5 shadow-primary mb-5 z-10 transition-all duration-700 ease-out ${
+                        stepsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                    }`}
+                    style={{ transitionDelay: '400ms' }}>
+                        <div className="shrink-0 w-15 h-15 rounded-full text-white flex-center bg-green-700 p-3 text-3xl">
+                            <LuFileSearch />
+                        </div>
+                        <div>
+                            <div className="text-xl font-semibold line-clamp-1">Expert Review</div>
+                            <p className="hidden xl:block mt-5 font-medium line-clamp-3 leading-4.5">Consultant radiologist performs comprehensive analysis within 24-48 hours</p>
+                        </div>
+                    </div>
                 </div>
-                <div className="flex flex-col xl:flex-row flex-col xl:flex-row items-center justify-between gap-5 xl:gap-10 p-4 xl:p-6 xl:p-12 border bg-[#EDF7FA] border-[#31E4C4] rounded-xl rounded-tl-none -mt-px">
+                <div ref={detailsRef} className={`flex flex-col xl:flex-row flex-col xl:flex-row items-center justify-between gap-5 xl:gap-10 p-4 xl:p-6 xl:p-12 border bg-[#EDF7FA] border-[#31E4C4] rounded-xl rounded-tl-none -mt-px transition-all duration-1000 ease-out ${
+                    detailsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'
+                }`}>
                     {activeTab === 1 && (
                         <>
                             <div className="max-w-137 w-full">

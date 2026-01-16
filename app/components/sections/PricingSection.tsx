@@ -1,11 +1,15 @@
+'use client'
 import React from 'react';
 import SectionTitle from "@/components/ui/sectionTitle";
 import TextList from "@/components/ui/textList";
 import Button from "@/components/ui/button";
 import Image from "next/image";
 import bgBottomVisual from "@/assets/images/bottom-visual-new.png";
+import {useScrollAnimation} from "@/hooks/useScrollAnimation";
 
 const PricingSection = () => {
+    const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
+
     return (
         <div id="pricing" className="relative overflow-hidden pb-4 xl:pb-20">
             <div className="clip-bottom-large-circle"></div>
@@ -16,8 +20,11 @@ const PricingSection = () => {
                 <div className="flex-center mb-12">
                     <SectionTitle title={'No Hidden Fees'} subtitle={'Transparent Pricing'}/>
                 </div>
-                <div className="grid grid-cols-1 xl:grid-cols-3 gap-5">
-                    <div className="flex flex-col bg-white shadow-primary rounded-xl px-4 xl:px-6 pt-6 xl:pt-14 pb-6 xl:pb-10.5">
+                <div ref={ref} className="grid grid-cols-1 xl:grid-cols-3 gap-5">
+                    <div className={`flex flex-col bg-white shadow-primary rounded-xl px-4 xl:px-6 pt-6 xl:pt-14 pb-6 xl:pb-10.5 transition-all duration-700 ease-out ${
+                        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'
+                    }`}
+                    style={{ transitionDelay: '0ms' }}>
                         <div className="flex flex-col items-center">
                             <h3 className="text-3xl leading-7 font-semibold">Written Report</h3>
                             <h5 className="mt-4 text-lg leading-6 font-medium text-gray-400">Comprehensive written
@@ -34,7 +41,10 @@ const PricingSection = () => {
                         <div className="mt-auto"><Button large={true} title={'Get Started'} bgColor={'bg-white'} type={'outline'}/></div>
                     </div>
 
-                    <div className="rounded-xl gradient-border relative">
+                    <div className={`rounded-xl gradient-border relative transition-all duration-700 ease-out ${
+                        isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-16 scale-95'
+                    }`}
+                    style={{ transitionDelay: '200ms' }}>
                         <div className="absolute -top-3.75 left-0 w-full flex-center">
                             <span
                                 className="bg-gradient text-white text-sm font-semibold leading-4.5 rounded-[30px] w-30 h-7.5 flex-center">Most Popular</span>
@@ -58,7 +68,10 @@ const PricingSection = () => {
                         </div>
                     </div>
 
-                    <div className="flex flex-col bg-white shadow-primary rounded-xl px-6 pt-14 pb-10.5">
+                    <div className={`flex flex-col bg-white shadow-primary rounded-xl px-6 pt-14 pb-10.5 transition-all duration-700 ease-out ${
+                        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'
+                    }`}
+                    style={{ transitionDelay: '400ms' }}>
                         <div className="flex flex-col items-center">
                             <h3 className="text-3xl leading-7 font-semibold">Urgent Review</h3>
                             <h5 className="mt-4 text-lg leading-6 font-medium text-gray-400">Priority 24-hour

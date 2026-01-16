@@ -1,3 +1,4 @@
+'use client'
 'use client';
 
 import React, { useRef, useState } from 'react';
@@ -12,6 +13,7 @@ import healthIcon from "@/assets/icons/health.svg";
 import Link from "next/link";
 import {FiChevronRight} from "react-icons/fi";
 import bgVisual from "@/assets/images/center-visual.png";
+import {useScrollAnimation} from "@/hooks/useScrollAnimation";
 
 const cardData = [
     {
@@ -42,6 +44,8 @@ const cardData = [
 ];
 
 const YouWillReceivedSection = () => {
+    const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
+
     const sliderRef = useRef<HTMLDivElement>(null);
     const [isScrolling, setIsScrolling] = useState(false);
 
@@ -116,11 +120,14 @@ const YouWillReceivedSection = () => {
                     </div>
                 </div>
 
-                <div ref={sliderRef} className="flex flex-nowrap gap-5 mt-8 xl:mt-14 overflow-x-hidden scrollbar-hide">
+                <div ref={ref} ref={sliderRef} className="flex flex-nowrap gap-5 mt-8 xl:mt-14 overflow-x-hidden scrollbar-hide">
                     {cardData.map((card, idx) => (
                         <div
                             key={idx}
-                            className="w-76.25 shrink-0 rounded-xl shadow-primary bg-white px-5 pb-5 pt-10.5 transition-transform duration-300 hover:scale-105"
+                            className={`w-76.25 shrink-0 rounded-xl shadow-primary bg-white px-5 pb-5 pt-10.5 transition-transform duration-300 hover:scale-105 transition-all duration-700 ease-out ${
+                                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'
+                            }`}
+                            style={{ transitionDelay: `${idx * 150}ms` }}
                         >
                             <Image src={card.icon} alt="icon" width={52} height={52} className="object-contain max-h-12.5" />
                             <h4 className="text-xl font-semibold my-5 line-clamp-1">{card.title}</h4>
