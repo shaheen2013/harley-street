@@ -2,7 +2,7 @@
 
 @theme {
     --color-primary: #135269;
-    --color-blue-100:#ECF5FF;
+    --color-blue-100: #ECF5FF;
     --color-gray-400: #859BA3;
     --color-green-700: #00A98A;
     --gradient-title: linear-gradient(260.66deg, #31E4C4 0%, #2084D0 100%);
@@ -52,6 +52,7 @@
     textarea,
     select {
         @apply appearance-none outline-none shadow-none ring-0;
+
         &:focus, &:focus-visible {
             @apply outline-none ring-0 shadow-none border-gray-400;
         }
@@ -79,5 +80,23 @@ body {
         top: 0;
         left: -12%;
         z-index: 1;
+    }
+
+    .cs-border {
+        position: relative;
+
+        &:after {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            content: "";
+            right: -10px;
+            bottom: 0;
+            z-index: 9999;
+            border: 1px solid var(--color-green-700);
+            border-radius: 0 0 0 8px;
+            border-top: 0; 
+            border-right: 0;
+        }
     }
 }

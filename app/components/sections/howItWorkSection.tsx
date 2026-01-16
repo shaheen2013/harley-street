@@ -37,7 +37,7 @@ const HowItWorkSection = () => {
             <div className="container mx-auto">
                 <SectionTitle title={'How It Works'} subtitle={'Step by Step'}/>
                 <div className="grid grid-cols-3 gap-4 mt-14">
-                    <div className="flex gap-9 rounded-xl bg-[#EDF7FA] p-8.5 border border-[#31E4C4] border-b-0 rounded-bl-none rounded-br-none relative">
+                    <div className="cs-border flex gap-9 rounded-xl bg-[#EDF7FA] p-8.5 border border-[#31E4C4] border-b-0 rounded-bl-none rounded-br-none relative">
                         <div className="shrink-0 w-15 h-15 rounded-full text-white flex-center bg-green-700 p-3 text-3xl">
                             <MdOutlineFileUpload />
                         </div>
@@ -45,7 +45,7 @@ const HowItWorkSection = () => {
                             <div className="text-xl font-semibold line-clamp-1">Upload Your Scans</div>
                             <p className="mt-5 font-medium line-clamp-3 leading-4.5">Securely upload your medical imaging files or let us retrieve them from the NHS IEP</p>
                         </div>
-                        <div className="absolute w-full h-1.5 bg-[#EDF7FA] -bottom-1 left-0"></div>
+                        <div className="absolute w-[102%] h-1.5 bg-[#EDF7FA] -bottom-1 left-0"></div>
                     </div>
 
                     <div className="flex gap-9 rounded-xl bg-white p-8.5 shadow-primary mb-5">
